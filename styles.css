@@ -94,3 +94,31 @@ td+td,th+th{text-align:center}
 .pay-list{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:8px;font-size:14px;flex:1}
 .pay-list li{display:flex;gap:9px}
 .pay-list li::before{content:"";flex:none;width:14px;height:14px;margin-top:3px;background:var(--pay);-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M5 12.5l4.5 4.5 9.5-10' fill='none' stroke='black' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/contain no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M5 12.5l4.5 4.5 9.5-10' fill='none' stroke='black' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/contain no-repeat}
+
+/* Industries (Mall 5): a shopper walks the mall; each shop lights up as they pass */
+.mw-row{margin:0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:14px}
+.mw-shop{display:flex;flex-direction:column;overflow:hidden;border:1px solid rgba(120,170,235,.16);background:linear-gradient(180deg,rgba(13,32,76,.7),rgba(5,7,13,.9));opacity:.55;animation:mw-lit 10s linear infinite}
+.mw-top .mw-shop{border-radius:16px 16px 6px 6px}
+.mw-bottom .mw-shop{border-radius:6px 6px 16px 16px;background:linear-gradient(0deg,rgba(13,32,76,.7),rgba(5,7,13,.9))}
+.mw-awn{height:12px;flex:none;background:repeating-linear-gradient(90deg,currentColor 0 12px,rgba(255,255,255,.08) 12px 24px)}
+.mw-body{padding:12px;display:flex;gap:12px;align-items:center;flex:1}
+.mw-body svg{flex:none;filter:drop-shadow(0 0 6px currentColor)}
+.mw-body h3{margin:0;font-size:13px;font-weight:700;line-height:1.25;color:#EAF3FF}
+.mw-body p{margin:2px 0 0;font-size:12px;color:#A9BDDF}
+.mw-hall{position:relative;height:150px;border-radius:18px;background:repeating-linear-gradient(90deg,rgba(120,170,235,.07) 0 60px,rgba(120,170,235,.03) 60px 120px);border:1px dashed rgba(120,170,235,.25);overflow:hidden}
+.mw-line{position:absolute;left:0;right:0;top:50%;height:2px;background:repeating-linear-gradient(90deg,rgba(90,168,255,.6) 0 14px,transparent 14px 28px)}
+.mw-walker{position:absolute;top:50%;margin-top:-44px;width:64px;left:0;animation:mw-walk 10s linear infinite}
+.mw-bob{display:flex;flex-direction:column;align-items:center;gap:6px;animation:mw-bob .6s ease-in-out infinite}
+.mw-face{width:52px;height:52px;border-radius:50%;background:radial-gradient(circle at 50% 35%,#1D3F97,#0A1636 70%);border:2px solid #39FF88;box-shadow:0 0 0 5px rgba(57,255,136,.15),0 0 22px rgba(57,255,136,.75);overflow:hidden;box-sizing:border-box;position:relative}
+.mw-face svg{position:absolute;left:0;top:0}
+.mw-card{width:64px;height:30px;border-radius:7px;background:linear-gradient(155deg,#3E76EA,#1D3F97);box-shadow:0 0 14px -2px rgba(56,152,255,.9);padding:5px;box-sizing:border-box;display:flex;flex-direction:column;justify-content:space-between}
+.mw-card span{font-size:6px;font-weight:800;letter-spacing:.1em}
+.mw-bar{height:5px;border-radius:99px;background:rgba(3,5,13,.45)}
+.mw-bar i{display:block;height:5px;border-radius:99px;background:#39FF88;box-shadow:0 0 6px #39FF88;animation:mw-fill 10s linear infinite}
+.mw-tag{position:absolute;right:14px;top:12px;font-size:12px;background:rgba(5,7,13,.85)}
+@keyframes mw-walk{from{left:0}to{left:calc(100% - 64px)}}
+@keyframes mw-fill{from{width:4%}to{width:100%}}
+@keyframes mw-bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
+@keyframes mw-lit{0%{opacity:.55;box-shadow:none;border-color:rgba(120,170,235,.16)}4%,16%{opacity:1;box-shadow:0 0 0 2px currentColor,0 16px 36px -10px currentColor;border-color:currentColor}26%,100%{opacity:.55;box-shadow:none;border-color:rgba(120,170,235,.16)}}
+@media (max-width:900px){.mw-row{grid-template-columns:repeat(2,minmax(0,1fr))}.mw-row .mw-shop:last-child{grid-column:span 2}.mw-hall{height:120px}.mw-tag{display:none}}
+@media (prefers-reduced-motion:reduce){.mw-shop{opacity:1}}
