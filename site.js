@@ -2,6 +2,7 @@
   "use strict";
   var C = window.DR_CONFIG || {};
   var $all = function (sel, root) { return Array.prototype.slice.call((root || document).querySelectorAll(sel)); };
+  var short = function (n) { return n >= 1e6 ? (n / 1e6).toFixed(1).replace(/\.0$/, "") + "m" : n >= 1e3 ? Math.round(n / 1e3) + "k" : String(Math.round(n)); };
   var fmt = function (n) { return String(Math.round(n)).replace(/\B(?=(\d{3})+(?!\d))/g, ","); };
   var waDigits = String(C.whatsapp || "").replace(/\D/g, "");
 
@@ -74,7 +75,9 @@
       var out = {
         customersFmt: fmt(v.customers), avgFmt: fmt(v.avg), current: v.current, target: v.target, visits: v.visits,
         extraCustomers: fmt(extra), extraVisits: fmt(extraVisits), revenue: fmt(revenue), yearly: fmt(revenue * 12),
-        nowCount: fmt(nowCount), newCount: fmt(newCount)
+        nowCount: fmt(nowCount), newCount: fmt(newCount),
+        visitsYear: fmt(extraVisits * 12), m3: fmt(revenue * 3), m6: fmt(revenue * 6),
+        y1: short(revenue * 3), y2: short(revenue * 6), y3: short(revenue * 9), y4: short(revenue * 12)
       };
       $all("[data-out]").forEach(function (el) {
         var k = el.getAttribute("data-out");
@@ -82,6 +85,7 @@
       });
       var top = newCount || 1;
       var h = { nowH: Math.max(4, Math.round(nowCount / top * 100)) + "%", newH: (newCount ? 100 : 4) + "%" };
+      $all(".cd-line").forEach(function (p) { p.style.animation = "none"; void p.getBoundingClientRect(); p.style.animation = ""; });
       $all("[data-h]").forEach(function (el) { el.style.height = h[el.getAttribute("data-h")]; });
     };
     inputs.forEach(function (i) { i.addEventListener("input", calc); });
