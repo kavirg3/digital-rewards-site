@@ -26,6 +26,16 @@
     });
   }
 
+  /* ---------- hero visual: scale the 640x600 art to its column ---------- */
+  $all(".hv").forEach(function (box) {
+    var art = box.querySelector(".hv-in");
+    if (!art) return;
+    var fit = function () { art.style.transform = "scale(" + (box.clientWidth / 640) + ")"; };
+    fit();
+    if (window.ResizeObserver) new ResizeObserver(fit).observe(box);
+    else window.addEventListener("resize", fit);
+  });
+
   /* ---------- contact details from config ---------- */
   $all("[data-wa]").forEach(function (a) {
     if (waDigits) { a.href = "https://wa.me/" + waDigits; a.target = "_blank"; a.rel = "noopener"; }

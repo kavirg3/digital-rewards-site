@@ -61,3 +61,14 @@ td+td,th+th{text-align:center}
 @keyframes drfloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
 @keyframes drbreathe{50%{opacity:.65}}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;scroll-behavior:auto!important;transition:none!important}}
+
+/* Home hero visual: Track 3 (customers looping round a phone). Fixed 640x600 art, scaled to the column by site.js. */
+.hv{aspect-ratio:640/600;overflow:hidden}
+.hv-in{transform-origin:0 0}
+@keyframes tc-dash{to{stroke-dashoffset:-60}}
+@keyframes tc-run{from{offset-distance:0%}to{offset-distance:100%}}
+@keyframes tc-pulse{0%,100%{box-shadow:0 0 0 0 rgba(255,255,255,.55)}70%{box-shadow:0 0 0 7px rgba(255,255,255,0)}}
+@keyframes tc-blink{50%{opacity:.35}}
+.tc-flow{animation:tc-dash 2.4s linear infinite}
+.tc-walker{position:absolute;left:0;top:0;offset-path:path('M170 72 H470 A110 110 0 0 1 580 182 V418 A110 110 0 0 1 470 528 H170 A110 110 0 0 1 60 418 V182 A110 110 0 0 1 170 72 Z');offset-rotate:0deg;animation:tc-run 15s linear infinite}
+@media (prefers-reduced-motion:reduce){*{animation:none!important}}
