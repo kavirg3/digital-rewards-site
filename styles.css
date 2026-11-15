@@ -1,0 +1,63 @@
+/* Digital Rewards – shared styles (Sentiv Hub look: ink ground, ocean-glow glass, neon icons) */
+html{scroll-behavior:smooth}
+body{margin:0;background:#03050D}
+a{color:#38BDF8}a:hover{color:#7FCFEF}
+:focus-visible{outline:2px solid #FFE81F;outline-offset:3px}
+section[id]{scroll-margin-top:84px}
+.skip{position:absolute;left:-9999px;top:0;background:#FFE81F;color:#03050D;padding:10px 16px;z-index:100;font:600 14px Sora,system-ui,sans-serif}
+.skip:focus{left:8px;top:8px}
+
+.glass{background:radial-gradient(120% 90% at 50% 130%,rgba(59,150,255,.42) 0%,rgba(59,150,255,0) 62%),linear-gradient(180deg,rgba(10,22,54,.88),rgba(13,32,76,.84));border:1px solid rgba(96,165,250,.26);box-shadow:inset 0 1px 0 rgba(255,255,255,.12),inset 0 -1px 0 rgba(96,165,250,.65),0 22px 44px -16px rgba(0,0,0,.8),0 16px 32px -18px rgba(56,152,255,.75);border-radius:20px;box-sizing:border-box}
+.well{background:#05070D;border:1px solid rgba(255,255,255,.07);box-shadow:inset 0 2px 8px rgba(0,0,0,.6);border-radius:14px;box-sizing:border-box}
+.well[style*="padding: 28px"],.well[style*="padding: 40px"]{border-radius:20px}
+.orb{width:64px;height:64px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex:none;background:radial-gradient(circle at 50% 30%,rgba(90,168,255,.35),rgba(10,22,54,.9) 70%);border:1px solid rgba(96,165,250,.4);box-shadow:inset 0 -2px 0 currentColor,0 12px 24px -10px currentColor}
+.neon{filter:drop-shadow(0 0 6px currentColor)}
+.cta{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 26px;border-radius:14px;border:0;background:linear-gradient(180deg,#FBA94C,#F97316);color:#1A0B00;font:inherit;font-weight:700;text-decoration:none;cursor:pointer;box-shadow:0 10px 24px -12px rgba(249,115,22,.9),inset 0 1px 0 rgba(255,255,255,.25)}
+.cta:hover{color:#1A0B00;filter:brightness(1.08)}
+.cta[disabled]{opacity:.6;cursor:wait}
+.edge{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 24px;border-radius:14px;background:linear-gradient(180deg,rgba(13,32,76,.7),rgba(18,44,104,.92));border:1px solid rgba(96,165,250,.3);box-shadow:inset 0 -2px 0 #6DB3FF,0 12px 22px -10px rgba(56,152,255,1);color:#EAF3FF;font-weight:600;text-decoration:none;cursor:pointer;font-family:inherit;font-size:inherit}
+.edge:hover{color:#fff}
+.pill{display:inline-flex;align-items:center;min-height:44px;padding:0 14px;border-radius:999px;color:#C4D4EE;text-decoration:none;font-size:14px;font-weight:500}
+.pill:hover{background:rgba(255,255,255,.06);color:#fff}
+.pill.on{background:linear-gradient(180deg,rgba(13,32,76,.55),rgba(13,32,76,.85));box-shadow:inset 0 -2px 0 #5AA8FF,0 10px 18px -10px rgba(56,152,255,1);color:#fff}
+.chip{display:inline-flex;align-items:center;gap:8px;border-radius:999px;padding:8px 14px;font-size:14px;font-weight:600;background:rgba(255,255,255,.06);border:1px solid rgba(120,170,235,.16)}
+
+input,select,textarea{font:inherit;color:#E8ECF5;background:#05070D;border:1px solid rgba(255,255,255,.12);box-shadow:inset 0 2px 8px rgba(0,0,0,.6);border-radius:12px;padding:12px 14px;min-height:48px;width:100%;box-sizing:border-box}
+input[type=range]{padding:0;min-height:32px;border:0;box-shadow:none;background:transparent;accent-color:#38BDF8}
+input[type=checkbox]{width:22px;min-height:22px;height:22px;padding:0;accent-color:#38BDF8;flex:none}
+summary{cursor:pointer;list-style:none;min-height:44px;display:flex;align-items:center;justify-content:space-between;gap:16px;font-weight:600;font-size:16px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";color:#38BDF8;font-size:22px;font-weight:400}
+details[open] summary::after{content:"–"}
+
+th,td{padding:13px 16px;text-align:left;border-bottom:1px solid rgba(120,170,235,.16);font-size:14px}
+td+td,th+th{text-align:center}
+.y{display:inline-block;width:14px;height:14px;border-radius:50%;background:#39FF88;box-shadow:0 0 10px rgba(57,255,136,.8)}
+.n{display:inline-block;width:14px;height:14px;border-radius:50%;border:2px solid #3A4E78;box-sizing:border-box}
+
+[hidden]{display:none!important}
+
+/* phone menu */
+.menu-btn{display:none}
+@media (max-width:900px){
+  .menu-btn{display:inline-flex;margin-left:auto}
+  header nav[aria-label="Main"]{display:none!important;flex-basis:100%;flex-direction:column;align-items:stretch!important;padding-bottom:10px}
+  header.open nav[aria-label="Main"]{display:flex!important}
+  header nav[aria-label="Main"] .cta{margin-left:0!important}
+}
+
+/* floating WhatsApp button + consent bar (added by site.js) */
+.wa-float{position:fixed;right:16px;bottom:16px;z-index:30;width:58px;height:58px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:#0B3D24;border:1px solid #39FF88;color:#39FF88;box-shadow:0 0 24px -4px rgba(57,255,136,.8)}
+.wa-float:hover{color:#fff}
+.consent{position:fixed;left:16px;right:16px;bottom:16px;z-index:40;max-width:640px;margin:0 auto;padding:16px 18px;display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;color:#EAF3FF;font:14px/1.45 Sora,system-ui,sans-serif}
+.consent .cta,.consent .edge{min-height:44px;padding:0 16px;font-size:14px}
+
+/* privacy page prose */
+.prose{max-width:760px;margin:0 auto;padding:64px 24px 88px}
+.prose h1{font-size:clamp(32px,4.4vw,48px);line-height:1.08;letter-spacing:-.03em;margin:0 0 8px}
+.prose h2{font-size:21px;margin:32px 0 8px}
+.prose p,.prose li{color:#C4D4EE;font-size:16px;line-height:1.6}
+
+@keyframes drfloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+@keyframes drbreathe{50%{opacity:.65}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;scroll-behavior:auto!important;transition:none!important}}
