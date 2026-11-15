@@ -92,6 +92,28 @@
     calc();
   }
 
+  /* ---------- packages: visits that pay for each plan ---------- */
+  var payIn = document.querySelector("[data-pay-avg]");
+  if (payIn) {
+    var payCalc = function () {
+      var avg = Math.max(1, Number(payIn.value));
+      $all("[data-pay-avgout]").forEach(function (el) { el.textContent = fmt(avg); });
+      $all("[data-pay]").forEach(function (card) {
+        var v = Math.ceil(Number(card.getAttribute("data-pay")) / avg);
+        var q = function (s) { return card.querySelector(s); };
+        q("[data-pay-visits]").textContent = fmt(v);
+        q("[data-pay-word]").textContent = v === 1 ? "extra visit" : "extra visits";
+        q("[data-pay-week]").textContent = v <= 4 ? "about 1" : "about " + fmt(Math.ceil(v / 4.3));
+        var shown = Math.min(v, 24), html = "";
+        for (var i = 0; i < shown; i++) html += "<i></i>";
+        if (v > 24) html += "<small>+" + fmt(v - 24) + " more</small>";
+        q("[data-pay-dots]").innerHTML = html;
+      });
+    };
+    payIn.addEventListener("input", payCalc);
+    payCalc();
+  }
+
   /* ---------- lead form ---------- */
   $all("form[data-lead-form]").forEach(function (form) {
     var box = form.closest(".glass") || form.parentNode;

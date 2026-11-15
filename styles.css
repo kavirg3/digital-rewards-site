@@ -77,3 +77,20 @@ td+td,th+th{text-align:center}
 @keyframes cd-draw{from{stroke-dashoffset:900}to{stroke-dashoffset:0}}
 .cd-line{animation:cd-draw 1.2s ease-out both}
 @media (max-width:640px){.cd-tag{display:none}.cd-months span:nth-child(even){visibility:hidden}}
+
+/* Results section (Proof 4): three steps joined by flowing arrows; arrows hide when the steps stack */
+.pd-row{display:flex;flex-wrap:wrap;align-items:stretch;gap:18px}
+.pd-arrow{flex:none;align-self:center;display:flex}
+@keyframes pd-flow{to{stroke-dashoffset:-36}}
+.pd-flow{animation:pd-flow 1.6s linear infinite}
+@media (max-width:1180px){.pd-arrow{display:none}}
+
+/* Packages (Price 5): visits-to-pay-back counter per plan */
+.pay-box{padding:14px;display:flex;flex-direction:column;gap:8px;border-radius:16px}
+.pay-n{font-size:32px;font-weight:800;line-height:1;color:var(--pay);text-shadow:0 0 16px var(--pay-glow)}
+.pay-dots{display:flex;flex-wrap:wrap;gap:5px;min-height:14px;align-items:center}
+.pay-dots i{width:13px;height:13px;border-radius:50%;background:var(--pay);box-shadow:0 0 6px var(--pay-glow)}
+.pay-dots small{font-size:11px;color:#A9BDDF}
+.pay-list{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:8px;font-size:14px;flex:1}
+.pay-list li{display:flex;gap:9px}
+.pay-list li::before{content:"";flex:none;width:14px;height:14px;margin-top:3px;background:var(--pay);-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M5 12.5l4.5 4.5 9.5-10' fill='none' stroke='black' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/contain no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M5 12.5l4.5 4.5 9.5-10' fill='none' stroke='black' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/contain no-repeat}
