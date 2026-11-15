@@ -122,3 +122,10 @@ td+td,th+th{text-align:center}
 @keyframes mw-lit{0%{opacity:.55;box-shadow:none;border-color:rgba(120,170,235,.16)}4%,16%{opacity:1;box-shadow:0 0 0 2px currentColor,0 16px 36px -10px currentColor;border-color:currentColor}26%,100%{opacity:.55;box-shadow:none;border-color:rgba(120,170,235,.16)}}
 @media (max-width:900px){.mw-row{grid-template-columns:repeat(2,minmax(0,1fr))}.mw-row .mw-shop:last-child{grid-column:span 2}.mw-hall{height:120px}.mw-tag{display:none}}
 @media (prefers-reduced-motion:reduce){.mw-shop{opacity:1}}
+
+/* Industries page cards */
+.ind-card{padding:24px;display:flex;flex-direction:column;gap:12px}
+.ind-pain{margin:0;font-size:14px;color:#FF9CAC}
+.ind-ideas{margin:0;padding:0;list-style:none;display:flex;flex-wrap:wrap;gap:8px}
+.ind-ideas li{border-radius:999px;padding:7px 12px;font-size:13px;font-weight:600;background:rgba(255,255,255,.06);border:1px solid rgba(120,170,235,.16)}
+.ind-ideas li:first-child{border-color:var(--ind);box-shadow:0 0 12px -4px var(--ind)}
