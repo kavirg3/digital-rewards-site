@@ -198,3 +198,13 @@ td+td,th+th{text-align:center}
 @keyframes gs-flow{to{background-position:14px 0}}
 @keyframes gs-float{50%{transform:translateY(-6px)}}
 @media (max-width:1000px){.gs-film{display:none}.gs-layers{display:flex}}
+/* DIY vs managed: versus cards (17 Nov) */
+.vs-diy{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:12px;font-size:15px;color:#C4D4EE}
+.vs-diy li{display:flex;align-items:center;gap:12px}
+.vs-diy li>span{width:8px;height:8px;border-radius:50%;background:#FF7A90;box-shadow:0 0 10px rgba(255,59,92,.8);flex:none}
+.vs-ours{margin:0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px 20px;font-size:16px;font-weight:600}
+.vs-ours li{display:flex;align-items:center;gap:10px}
+.vs-ours li>span{width:26px;height:26px;border-radius:50%;background:rgba(57,255,136,.16);display:flex;align-items:center;justify-content:center;flex:none}
+.vs-badge{flex:0 0 auto;width:64px;height:64px;margin:0 auto;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:800;letter-spacing:.04em;color:#EAF3FF;background:linear-gradient(180deg,rgba(13,32,76,.9),rgba(5,7,13,.95));border:1px solid rgba(96,165,250,.4);box-shadow:0 0 30px -6px rgba(56,152,255,.8)}
+.vs-cta{white-space:nowrap}
+@media (max-width:560px){.vs-ours{grid-template-columns:1fr}.vs-card{padding:24px!important}.vs-cta{width:100%}}
