@@ -129,3 +129,29 @@ td+td,th+th{text-align:center}
 .ind-ideas{margin:0;padding:0;list-style:none;display:flex;flex-wrap:wrap;gap:8px}
 .ind-ideas li{border-radius:999px;padding:7px 12px;font-size:13px;font-weight:600;background:rgba(255,255,255,.06);border:1px solid rgba(120,170,235,.16)}
 .ind-ideas li:first-child{border-color:var(--ind);box-shadow:0 0 12px -4px var(--ind)}
+
+/* Home features (Phone 2): the six tools shown as the messages customers get; site.js lights one list row + message at a time */
+.fx-wrap{display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:48px;align-items:center}
+.fx-copy{display:flex;flex-direction:column;gap:22px;min-width:0}
+.fx-list{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.fx-list li{display:flex;align-items:center;gap:12px;padding:10px 14px 10px 10px;border-radius:16px;border:1px solid rgba(120,170,235,.16);background:rgba(255,255,255,.03);transition:border-color .3s,box-shadow .3s,background .3s}
+.fx-list li.on{border-color:currentColor;box-shadow:0 0 0 1px currentColor,0 14px 30px -14px currentColor;background:rgba(13,32,76,.7)}
+.fx-orb{width:46px;height:46px}.fx-orb svg{filter:drop-shadow(0 0 6px currentColor)}
+.fx-name{color:#EAF3FF;font-size:15px;font-weight:600}
+.fx-phone{width:min(340px,100%);margin:0 auto;border-radius:46px;padding:12px;background:linear-gradient(160deg,#1B2440,#070A14);border:1px solid rgba(120,170,235,.3);box-shadow:0 30px 60px -20px rgba(0,0,0,.9),0 0 60px -20px rgba(56,152,255,.7);box-sizing:border-box}
+.fx-screen{border-radius:36px;padding:18px 12px 16px;background:radial-gradient(120% 60% at 50% 0%,rgba(29,63,151,.85),transparent 70%),#060A18;display:flex;flex-direction:column;gap:8px;box-sizing:border-box}
+.fx-notch{width:96px;height:26px;border-radius:99px;background:#000;margin:0 auto 8px}
+.fx-time{text-align:center;font-size:52px;font-weight:300;line-height:1;letter-spacing:-.02em;color:#EAF3FF}
+.fx-date{text-align:center;font-size:13px;color:#C4D4EE;margin-bottom:12px}
+.fx-notes{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px}
+.fx-note{display:flex;gap:10px;align-items:flex-start;padding:10px 12px;border-radius:18px;background:rgba(30,40,70,.72);border:1px solid rgba(255,255,255,.06);transition:transform .35s,box-shadow .35s,border-color .35s}
+.fx-note.on{transform:scale(1.03);border-color:currentColor;box-shadow:0 0 0 1px currentColor,0 10px 26px -8px currentColor}
+.fx-ic{width:30px;height:30px;border-radius:8px;flex:none;display:flex;align-items:center;justify-content:center;background:#0A1636;border:1px solid currentColor}
+.fx-ic svg{filter:drop-shadow(0 0 4px currentColor)}
+.fx-note>div{min-width:0;flex:1}
+.fx-top{display:flex;justify-content:space-between;gap:8px;font-size:12px}
+.fx-top b{color:#EAF3FF}.fx-top small{color:#A9BDDF}
+.fx-note p{margin:1px 0 0;font-size:12.5px;line-height:1.35;color:#DCE7FA}
+.fx-you{font-size:10px;font-weight:700;letter-spacing:.06em;color:#7FCFEF;border:1px solid rgba(127,207,239,.5);border-radius:6px;padding:1px 6px;margin-left:6px}
+@media (max-width:900px){.fx-wrap{grid-template-columns:1fr}}
+@media (max-width:520px){.fx-list{grid-template-columns:1fr}}

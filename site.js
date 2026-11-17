@@ -156,6 +156,22 @@
     form.appendChild(hp);
   });
 
+  /* ---------- home features: light one tool + its phone message at a time ---------- */
+  var fxRows = $all(".fx-list [data-fx]"), fxNotes = $all(".fx-notes [data-fx]");
+  if (fxRows.length) {
+    var fxI = 0, fxHold = false;
+    var fxSet = function (i) {
+      fxI = i;
+      fxRows.concat(fxNotes).forEach(function (el) { el.classList.toggle("on", +el.getAttribute("data-fx") === i); });
+    };
+    fxRows.forEach(function (el) {
+      el.addEventListener("mouseenter", function () { fxHold = true; fxSet(+el.getAttribute("data-fx")); });
+      el.addEventListener("mouseleave", function () { fxHold = false; });
+    });
+    var fxStill = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (!fxStill) setInterval(function () { if (!fxHold && !document.hidden) fxSet((fxI + 1) % fxRows.length); }, 2600);
+  }
+
   /* ---------- analytics, only after consent (POPIA) ---------- */
   var loadAnalytics = function () {
     if (C.ga4) {
