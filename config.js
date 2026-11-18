@@ -13,9 +13,6 @@ window.DR_CONFIG = {
   ga4: "",
   // Meta Pixel ID, e.g. "123456789012345"
   metaPixel: "",
-  // Case Studies page, founding partner offer. Set "taken" to a number (e.g. 3) to show
-  // "7 of 10 seats left" and the seat grid. Leave it null to show only "10 founding seats".
-  founding: { seats: 10, taken: null },
   // About page founder photo, e.g. "brand/founder.jpg" (portrait, about 4:5). Empty shows a "K" monogram.
   founderPhoto: "brand/founder.jpg"
 };
