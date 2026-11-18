@@ -66,6 +66,28 @@
     document.body.appendChild(f);
   }
 
+  /* ---------- Case Studies: founding seats (count only shows when config sets it) ---------- */
+  $all("[data-seats]").forEach(function (box) {
+    var F = C.founding || {}, total = +F.seats || 10, taken = F.taken;
+    var cnt = box.querySelector("[data-seats-count]"), lab = box.querySelector("[data-seats-label]"), grid = box.querySelector("[data-seats-grid]");
+    if (typeof taken !== "number" || taken < 0) { cnt.textContent = total; return; }
+    taken = Math.min(taken, total);
+    var left = total - taken;
+    cnt.textContent = left;
+    lab.textContent = left === 0 ? "All founding seats are taken" : "of " + total + " founding seats left, Gauteng only";
+    var html = "";
+    for (var i = 0; i < total; i++) html += i < taken ? '<div class="cs-seat taken">Taken</div>' : '<div class="cs-seat open">Open</div>';
+    grid.innerHTML = html;
+    grid.setAttribute("role", "img");
+    grid.setAttribute("aria-label", taken + " of " + total + " founding seats taken");
+    grid.hidden = false;
+  });
+  /* contact.html?interest=founding: note it in the challenge box */
+  if (/[?&]interest=founding\b/.test(location.search)) {
+    var ch = document.querySelector('[data-lead-form] [name="challenge"]');
+    if (ch && !ch.value) ch.value = "I would like a founding partner seat.";
+  }
+
   /* ---------- ROI calculator ---------- */
   var inputs = $all("[data-calc]");
   if (inputs.length) {

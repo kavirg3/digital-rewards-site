@@ -12,5 +12,8 @@ window.DR_CONFIG = {
   // Google Analytics 4 measurement ID, e.g. "G-XXXXXXXXXX"
   ga4: "",
   // Meta Pixel ID, e.g. "123456789012345"
-  metaPixel: ""
+  metaPixel: "",
+  // Case Studies page, founding partner offer. Set "taken" to a number (e.g. 3) to show
+  // "7 of 10 seats left" and the seat grid. Leave it null to show only "10 founding seats".
+  founding: { seats: 10, taken: null }
 };
