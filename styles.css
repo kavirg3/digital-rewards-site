@@ -124,11 +124,44 @@ td+td,th+th{text-align:center}
 @media (prefers-reduced-motion:reduce){.mw-shop{opacity:1}}
 
 /* Industries page cards */
-.ind-card{padding:24px;display:flex;flex-direction:column;gap:12px}
-.ind-pain{margin:0;font-size:14px;color:#FF9CAC}
-.ind-ideas{margin:0;padding:0;list-style:none;display:flex;flex-wrap:wrap;gap:8px}
-.ind-ideas li{border-radius:999px;padding:7px 12px;font-size:13px;font-weight:600;background:rgba(255,255,255,.06);border:1px solid rgba(120,170,235,.16)}
-.ind-ideas li:first-child{border-color:var(--ind);box-shadow:0 0 12px -4px var(--ind)}
+/* Industries picker (option 1) */
+.ip{display:flex;flex-direction:column;gap:20px}
+.ip-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:10px 24px}
+.ip-chips{display:flex;flex-wrap:wrap;gap:10px}
+.ip-chip{display:inline-flex;align-items:center;gap:10px;min-height:48px;padding:0 18px 0 14px;border-radius:999px;border:1px solid rgba(120,170,235,.2);background:rgba(255,255,255,.04);color:#C4D4EE;font:inherit;font-size:14px;font-weight:600;cursor:pointer;white-space:nowrap;flex:none}
+.ip-chip svg{color:var(--c);flex:none}
+.ip-chip:hover{color:#fff;background:rgba(255,255,255,.08)}
+.ip-chip[aria-selected="true"]{border-color:var(--c);background:rgba(13,32,76,.92);color:#fff;box-shadow:inset 0 -2px 0 var(--c),0 10px 22px -10px var(--c)}
+.ip-chip:focus-visible{outline:2px solid #9E8BFF;outline-offset:2px}
+.ip-panel{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:40px;padding:40px 44px;align-items:center}
+.ip-panel[hidden]{display:none}
+.ip-info{display:flex;flex-direction:column;gap:20px}
+.ip-title{display:flex;align-items:center;gap:16px}
+.ip-title h3{margin:0;font-size:26px;line-height:1.2;letter-spacing:-.02em;font-weight:800}
+.ip-label{display:block;margin-bottom:8px;font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#A9BDDF}
+.ip-pain{margin:0;font-size:21px;line-height:1.3;font-weight:600;color:#FF9CAC}
+.ip-ideas{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:12px}
+.ip-ideas li{display:flex;align-items:center;gap:14px;font-size:16px;font-weight:600}
+.ip-ideas li span{width:32px;height:32px;border-radius:50%;flex:none;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;background:var(--c);color:var(--ink)}
+.ip-go{display:flex;flex-wrap:wrap;align-items:center;gap:14px 18px;padding-top:4px}
+.ip-go span{font-size:13px;color:#A9BDDF}
+.ip-cardwrap{display:flex;flex-direction:column;align-items:center;gap:12px}
+.ip-card{width:100%;max-width:410px;box-sizing:border-box;border-radius:26px;padding:26px;background:linear-gradient(160deg,rgba(26,36,74,.96),rgba(8,12,28,.98));border:1px solid var(--c);box-shadow:inset 0 1px 0 rgba(255,255,255,.08),0 34px 70px -30px var(--c);display:flex;flex-direction:column;gap:22px}
+.ip-cardtop{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.ip-brand{display:flex;align-items:center;gap:12px}
+.ip-brand i{width:40px;height:40px;border-radius:12px;flex:none;display:flex;align-items:center;justify-content:center;background:var(--c);color:var(--ink)}
+.ip-brand b,.ip-cardfoot b{display:block;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#A9BDDF;font-weight:700}
+.ip-brand strong{display:block;font-size:16px}
+.ip-wallet{font-size:12px;color:#A9BDDF}
+.ip-stamps{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px}
+.ip-stamps i{aspect-ratio:1;border-radius:50%;box-sizing:border-box;display:flex;align-items:center;justify-content:center;background:var(--c);color:var(--ink);box-shadow:0 0 16px -4px var(--c)}
+.ip-stamps i.free{background:none;box-shadow:none;border:1.5px dashed var(--c);color:var(--c);font-style:normal;font-size:10px;font-weight:800;letter-spacing:.04em}
+.ip-cardfoot{display:flex;justify-content:space-between;align-items:flex-end;gap:12px;padding-top:18px;border-top:1px dashed rgba(120,170,235,.3)}
+.ip-cardfoot strong{display:block;font-size:18px;font-weight:800}
+.ip-cardfoot span{font-size:13px;color:#C4D4EE;text-align:right}
+.ip-note{font-size:12px;color:#A9BDDF}
+@media (max-width:900px){.ip-panel{grid-template-columns:minmax(0,1fr);padding:28px 22px;gap:28px}.ip-title h3{font-size:22px}.ip-pain{font-size:18px}}
+@media (max-width:640px){.ip-chips{flex-wrap:nowrap;overflow-x:auto;padding:2px 2px 8px;scrollbar-width:none}.ip-chips::-webkit-scrollbar{display:none}.ip-card{padding:20px}.ip-stamps{gap:9px}}
 
 /* Home features (Phone 2): the six tools shown as the messages customers get; site.js lights one list row + message at a time */
 .fx-wrap{display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:48px;align-items:center}

@@ -312,4 +312,29 @@
       });
     });
   }
+  var ip = document.querySelector("[data-ip]");
+  if (ip) {
+    var ipTabs = [].slice.call(ip.querySelectorAll('[role="tab"]'));
+    var ipShow = function (n) {
+      ipTabs.forEach(function (t, i) {
+        var on = i === n;
+        t.setAttribute("aria-selected", on ? "true" : "false");
+        t.tabIndex = on ? 0 : -1;
+        document.getElementById(t.getAttribute("aria-controls")).hidden = !on;
+      });
+    };
+    ipTabs.forEach(function (t, i) {
+      t.addEventListener("click", function () {
+        ipShow(i);
+        if (t.scrollIntoView && t.parentNode.scrollWidth > t.parentNode.clientWidth) t.scrollIntoView({ block: "nearest", inline: "center", behavior: "smooth" });
+      });
+    });
+    ip.querySelector('[role="tablist"]').addEventListener("keydown", function (e) {
+      var i = ipTabs.indexOf(document.activeElement);
+      if (i < 0 || (e.key !== "ArrowRight" && e.key !== "ArrowLeft")) return;
+      var n = (i + (e.key === "ArrowRight" ? 1 : ipTabs.length - 1)) % ipTabs.length;
+      ipShow(n); ipTabs[n].focus(); e.preventDefault();
+    });
+    ipShow(0);
+  }
 })();
