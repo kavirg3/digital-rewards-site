@@ -1,3 +1,13 @@
+/* Clean addresses: an old link like /pricing.html shows as /pricing (same page, no reload) */
+(function () {
+  try {
+    var p = location.pathname;
+    if (/\.html$/.test(p) && history.replaceState) {
+      var clean = p.replace(/index\.html$/, "").replace(/\.html$/, "");
+      history.replaceState(null, "", clean + location.search + location.hash);
+    }
+  } catch (e) {}
+})();
 (function () {
   "use strict";
   var C = window.DR_CONFIG || {};
@@ -260,7 +270,7 @@
       bar.className = "glass consent";
       bar.setAttribute("role", "region");
       bar.setAttribute("aria-label", "Cookie consent");
-      bar.innerHTML = '<span style="flex:1 1 260px">We use analytics cookies to improve this site. <a href="privacy.html">Privacy policy</a></span>' +
+      bar.innerHTML = '<span style="flex:1 1 260px">We use analytics cookies to improve this site. <a href="privacy">Privacy policy</a></span>' +
         '<span style="display:flex;gap:8px"><button type="button" class="edge" data-c="no">Decline</button><button type="button" class="cta" data-c="yes">Accept</button></span>';
       document.body.appendChild(bar);
       bar.addEventListener("click", function (e) {
