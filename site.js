@@ -50,6 +50,12 @@
     if (C.hours) bits.push("Hours: " + C.hours);
     if (bits.length) el.innerHTML = bits.join(" · "); else el.hidden = true;
   });
+  $all("[data-tel]").forEach(function (a) {
+    if (!C.phone) { a.hidden = true; return; }
+    a.href = "tel:" + String(C.phone).replace(/[^\d+]/g, "");
+    var t = a.querySelector("[data-tel-text]");
+    if (t) t.textContent = C.phone;
+  });
   if (waDigits) {
     var f = document.createElement("a");
     f.className = "wa-float";
@@ -116,7 +122,7 @@
 
   /* ---------- lead form ---------- */
   $all("form[data-lead-form]").forEach(function (form) {
-    var box = form.closest(".glass") || form.parentNode;
+    var box = form.closest("[data-lead-box], .glass") || form.parentNode;
     var err = form.querySelector("[data-form-error]");
     var submit = form.querySelector('button[type="submit"]');
     var done = function () {
@@ -154,6 +160,31 @@
     hp.setAttribute("aria-hidden", "true");
     hp.style.cssText = "position:absolute;left:-9999px;width:1px;height:1px;opacity:0";
     form.appendChild(hp);
+  });
+
+  /* ---------- stamp-card form: one stamp per filled field, the 6th (gift) when all are in ---------- */
+  $all("form[data-stamps]").forEach(function (form) {
+    var fields = $all("[data-stamp]", form);
+    var stamps = $all("[data-stamp-row] .stamp", form);
+    var row = form.querySelector("[data-stamp-row]");
+    var countEl = form.querySelector("[data-stamp-count]");
+    var leftEl = form.querySelector("[data-stamp-left]");
+    var paint = function () {
+      var n = 0;
+      fields.forEach(function (el) {
+        var ok = el.value.trim() !== "" && el.checkValidity();
+        el.classList.toggle("done", ok);
+        if (ok) n++;
+      });
+      var total = stamps.length;
+      stamps.forEach(function (s, i) { s.classList.toggle("on", i === total - 1 ? n >= fields.length : i < n); });
+      if (countEl) countEl.textContent = n;
+      if (leftEl) leftEl.textContent = n >= fields.length ? "Ready to claim" : (fields.length - n) + " to go";
+      if (row) row.setAttribute("aria-label", n + " of " + fields.length + " stamps collected");
+    };
+    form.addEventListener("input", paint);
+    form.addEventListener("change", paint);
+    paint();
   });
 
   /* ---------- home features: light one tool + its phone message at a time ---------- */

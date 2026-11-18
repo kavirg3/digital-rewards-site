@@ -220,3 +220,33 @@ td+td,th+th{text-align:center}
 .bl-steps p{margin:6px 0 0;font-size:14px;line-height:1.55;color:#A9BDDF}
 .bl-steps .bl-5 h3{color:#FFE81F}
 @media (max-width:760px){.bl-chart{height:280px;gap:8px}.bl-tag{font-size:11px;padding:4px 9px;top:-32px}.bl-win small{display:none}.bl-steps{grid-template-columns:1fr}}
+
+/* Home assessment: C2.1 wallet pass form (18 Nov). Stamps light up as fields fill (site.js). */
+.wchips{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:10px}
+.wchip{display:inline-flex;align-items:center;gap:10px;min-height:44px;padding:0 16px 0 12px;border-radius:999px;background:#000;border:1px solid rgba(255,255,255,.22);font-size:14px;font-weight:700;color:#fff}
+.wchip-v{background:rgba(158,139,255,.12);border-color:rgba(158,139,255,.4);color:#C4B8FF}
+.wa-btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:56px;padding:0 24px;border-radius:14px;background:linear-gradient(180deg,#3BE07A,#1FBF5B);color:#04210F;font-weight:800;font-size:16px;text-decoration:none;box-shadow:0 12px 26px -12px rgba(37,211,102,.9),inset 0 1px 0 rgba(255,255,255,.35)}
+.wa-btn:hover{color:#04210F;filter:brightness(1.06)}
+.ph-btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:56px;padding:0 22px;border-radius:14px;background:linear-gradient(180deg,rgba(13,32,76,.7),rgba(18,44,104,.92));border:1px solid rgba(96,165,250,.35);box-shadow:inset 0 -2px 0 #6DB3FF,0 12px 22px -10px rgba(56,152,255,1);color:#EAF3FF;font-weight:700;font-size:16px;text-decoration:none}
+.ph-btn:hover{color:#fff}
+.pass{flex:1 1 360px;max-width:440px;min-width:0;margin:0 auto;box-sizing:border-box;border-radius:26px;overflow:hidden;background:linear-gradient(180deg,#15122B 0%,#0D0A26 100%);border:1px solid rgba(158,139,255,.35);box-shadow:inset 0 1px 0 rgba(255,255,255,.14),0 40px 80px -30px rgba(112,66,250,.8),0 22px 44px -16px rgba(0,0,0,.85)}
+.pass-top{padding:18px 22px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.pass-strip{margin:0 14px;padding:18px;border-radius:18px;background:linear-gradient(135deg,#7C52FB 0%,#4B2FC2 60%,#2A1C7A 100%);display:flex;flex-direction:column;gap:14px}
+.stamps{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:8px}
+.stamp{aspect-ratio:1;border-radius:50%;border:2px solid rgba(255,255,255,.45);box-sizing:border-box;display:flex;align-items:center;justify-content:center;transition:transform .25s,background .25s}
+.stamp.on{background:#fff;border-color:#fff;box-shadow:0 4px 10px rgba(0,0,0,.3);transform:scale(1.06)}
+.stamp.on::after{content:"";width:34%;height:18%;border-left:3px solid #4B2FC2;border-bottom:3px solid #4B2FC2;transform:translateY(-15%) rotate(-45deg)}
+.stamp-gift{background:#FFE81F;border-color:#FFE81F;opacity:.75}
+.stamp-gift.on{opacity:1;background:#FFE81F;border-color:#FFE81F;box-shadow:0 0 18px rgba(255,232,31,.8)}
+.stamp-gift.on::after{display:none}
+.pass-fields{padding:18px 22px 8px;display:flex;flex-direction:column;gap:10px}
+.pass-two{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.pf{display:flex;flex-direction:column;gap:4px;min-width:0}
+.pf label{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#C4B8FF}
+.pass input:not([type=checkbox]),.pass select,.pass textarea{background:rgba(5,7,13,.75);box-shadow:none;min-height:48px;padding:10px 14px}
+.pass .done{border-color:rgba(158,139,255,.65)}
+.pass-tear{position:relative;height:24px;margin:6px 0}
+.pass-tear::before,.pass-tear::after{content:"";position:absolute;top:0;width:24px;height:24px;border-radius:50%;background:#03050D}
+.pass-tear::before{left:-12px}.pass-tear::after{right:-12px}
+.pass-tear span{position:absolute;left:20px;right:20px;top:11px;border-top:2px dashed rgba(158,139,255,.35)}
+.pass-foot{padding:4px 22px 22px;display:flex;flex-direction:column;gap:12px}
