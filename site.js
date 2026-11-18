@@ -243,3 +243,42 @@
     }
   }
 })();
+
+/* Solutions page: phone tour tabs + goal picker (classes so-*, markup in solutions.html) */
+(function () {
+  var tour = document.querySelector("[data-so-tour]");
+  if (tour) {
+    var tabs = [].slice.call(tour.querySelectorAll('[role="tab"]'));
+    var show = function (i) {
+      tabs.forEach(function (t, j) {
+        var on = j === i;
+        t.setAttribute("aria-selected", on ? "true" : "false");
+        t.tabIndex = on ? 0 : -1;
+        document.getElementById(t.getAttribute("aria-controls")).hidden = !on;
+        document.getElementById(t.getAttribute("data-screen")).hidden = !on;
+      });
+    };
+    tabs.forEach(function (t, i) { t.addEventListener("click", function () { show(i); }); });
+    tour.querySelector('[role="tablist"]').addEventListener("keydown", function (e) {
+      var i = tabs.indexOf(document.activeElement);
+      if (i < 0 || (e.key !== "ArrowRight" && e.key !== "ArrowLeft")) return;
+      var n = (i + (e.key === "ArrowRight" ? 1 : tabs.length - 1)) % tabs.length;
+      show(n); tabs[n].focus(); e.preventDefault();
+    });
+  }
+  var picker = document.querySelector("[data-so-goals]");
+  if (picker) {
+    var goals = [].slice.call(picker.querySelectorAll("[data-goal]"));
+    goals.forEach(function (b) {
+      b.addEventListener("click", function () {
+        var on = (b.getAttribute("data-on") + " man").split(" ");
+        goals.forEach(function (x) { x.setAttribute("aria-pressed", x === b ? "true" : "false"); });
+        [].forEach.call(picker.querySelectorAll(".so-tool"), function (t) {
+          var lit = on.indexOf(t.getAttribute("data-k")) > -1;
+          t.classList.toggle("on", lit); t.classList.toggle("off", !lit);
+        });
+        [].forEach.call(picker.querySelectorAll("[data-plan]"), function (p) { p.hidden = p.getAttribute("data-plan") !== b.getAttribute("data-goal"); });
+      });
+    });
+  }
+})();
