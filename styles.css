@@ -427,7 +427,7 @@ td+td,th+th{text-align:center}
 .ab-gy{color:#FFE81F;text-shadow:0 0 22px rgba(255,232,31,.35)}
 .ab-fl{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:32px;align-items:center}
 .ab-photo{aspect-ratio:4/5;width:100%;max-width:420px;justify-self:center;border-radius:22px;overflow:hidden;position:relative;border:1px solid rgba(158,139,255,.35);box-shadow:0 30px 60px -24px rgba(124,82,251,.7)}
-.ab-photo img{width:100%;height:100%;object-fit:cover;display:block}
+.ab-photo img{width:100%;height:100%;object-fit:cover;object-position:50% 35%;display:block}
 .ab-mono{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:radial-gradient(circle at 50% 35%,rgba(158,139,255,.35),rgba(13,32,76,.6) 55%,#0A1028)}
 .ab-mono span{width:58%;aspect-ratio:1;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:clamp(80px,12vw,150px);font-weight:800;color:#070119;background:linear-gradient(180deg,#A588FC,#7C52FB);box-shadow:0 0 60px rgba(124,82,251,.6),inset 0 2px 0 rgba(255,255,255,.3)}
 .ab-letter{padding:30px;display:flex;flex-direction:column;gap:14px;min-width:0}

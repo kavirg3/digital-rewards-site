@@ -17,5 +17,5 @@ window.DR_CONFIG = {
   // "7 of 10 seats left" and the seat grid. Leave it null to show only "10 founding seats".
   founding: { seats: 10, taken: null },
   // About page founder photo, e.g. "brand/founder.jpg" (portrait, about 4:5). Empty shows a "K" monogram.
-  founderPhoto: ""
+  founderPhoto: "brand/founder.jpg"
 };
