@@ -348,3 +348,15 @@
     ipShow(0);
   }
 })();
+
+// Home "Meet Jason" video: big play button, then native controls
+document.querySelectorAll('[data-mv]').forEach(function (f) {
+  var v = f.querySelector('video'), b = f.querySelector('.mv-play');
+  if (!v || !b) return;
+  b.addEventListener('click', function () {
+    f.classList.add('on'); v.controls = true; v.preload = 'auto';
+    var p = v.play(); if (p && p.catch) p.catch(function () {});
+    v.focus();
+  });
+  v.addEventListener('play', function () { f.classList.add('on'); v.controls = true; });
+});
