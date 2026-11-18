@@ -66,6 +66,15 @@
     document.body.appendChild(f);
   }
 
+  /* ---------- About: founder photo from config (monogram until it is set) ---------- */
+  if (C.founderPhoto) {
+    $all("[data-founder-img]").forEach(function (img) {
+      var box = img.closest("[data-founder-photo]"), mono = box && box.querySelector("[data-founder-mono]");
+      img.onload = function () { img.hidden = false; if (mono) mono.hidden = true; };
+      img.src = C.founderPhoto;
+    });
+  }
+
   /* ---------- Case Studies: founding seats (count only shows when config sets it) ---------- */
   $all("[data-seats]").forEach(function (box) {
     var F = C.founding || {}, total = +F.seats || 10, taken = F.taken;
