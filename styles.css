@@ -283,6 +283,25 @@ td+td,th+th{text-align:center}
 .pass-tear::before{left:-12px}.pass-tear::after{right:-12px}
 .pass-tear span{position:absolute;left:20px;right:20px;top:11px;border-top:2px dashed rgba(158,139,255,.35)}
 .pass-foot{padding:4px 22px 22px;display:flex;flex-direction:column;gap:12px}
+/* 18 Nov: slimmer pass on laptops/desktops so it fits one screen; phones keep full-size fields */
+@media (min-width:1001px){
+.pass{max-width:390px;border-radius:22px}
+.pass-top{padding:14px 18px}
+.pass-strip{margin:0 12px;padding:13px 14px;gap:10px;border-radius:16px}
+.stamps{gap:7px}
+.pass-fields{padding:12px 18px 4px;gap:7px}
+.pass-two{gap:8px}
+.pf{gap:3px}
+.pf label{font-size:10px}
+.pass input:not([type=checkbox]),.pass select,.pass textarea{min-height:40px;padding:7px 12px;font-size:15px}
+.pass textarea{height:40px}
+.pass-tear{height:20px;margin:4px 0}
+.pass-tear::before,.pass-tear::after{width:20px;height:20px}
+.pass-tear::before{left:-10px}.pass-tear::after{right:-10px}
+.pass-tear span{top:9px}
+.pass-foot{padding:2px 18px 18px;gap:10px}
+.pass-foot .cta{min-height:48px}
+}
 
 /* Solutions page (18 Nov, option B "Tour first"): phone tour, bento grid, goal picker. Classes so-*; tabs + picker in site.js */
 .so-sec{display:flex;flex-direction:column;gap:24px}
