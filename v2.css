@@ -273,3 +273,15 @@
 /* Jason chip on the video: bigger photo so his face is clear (19 Nov) */
 .mv-who{padding:5px 16px 5px 5px}
 .mv-who img{width:40px;height:40px;border-width:2px}
+
+/* About intro = version A: name plate on photo + trust strip; "We are new" removed (19 Nov) */
+.ta-photo{position:relative}
+.ta-plate{position:absolute;left:12px;right:12px;bottom:12px;border-radius:14px;padding:10px 14px;background:rgba(5,7,13,.78);backdrop-filter:blur(10px);border:1px solid rgba(158,139,255,.35);display:flex;justify-content:space-between;align-items:center;gap:10px}
+.ta-plate b{font-size:16px}.ta-plate span{font-size:12px;color:#A9BDDF}
+.ta-strip{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.ta-strip>div{padding:16px 18px;display:flex;gap:12px;align-items:center}
+.ta-strip .orb{width:42px;height:42px}
+.ta-strip b{display:block;font-size:15px}.ta-strip span{font-size:13px;color:#A9BDDF}
+.ta-small .ab-photo{max-width:340px}
+@media (max-width:900px){.ta-strip{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:520px){.ta-strip{grid-template-columns:1fr}}
