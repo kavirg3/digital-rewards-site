@@ -195,3 +195,14 @@
 .wa-chip.gg{background:#fff;color:#1F1F1F;border:1px solid #fff}
 .wa-chip small{display:block;font-size:9px;font-weight:500;opacity:.75;margin-bottom:2px}
 .wa-chips.sm .wa-chip{height:30px;font-size:12px}
+
+
+/* Home hero layout C 'proof bar' (19 Nov) */
+.hx-ben{margin:0;padding:0;list-style:none;display:flex;flex-wrap:wrap;align-items:center;font-size:15px;font-weight:600;color:#C4D4EE}
+.hx-ben li{display:inline-flex;align-items:center;gap:8px}
+.hx-row{display:flex;flex-wrap:wrap;align-items:center;gap:12px}
+.hx-a{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:40px;align-items:center}
+.hx-c{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:40px;align-items:center}
+.hx-bar{margin-top:28px;padding:16px 22px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:14px 24px}
+.hx-div{width:1px;align-self:stretch;background:rgba(120,170,235,.22)}
+@media (max-width:900px){.hx-a,.hx-c{grid-template-columns:1fr}.hx-div{display:none}.hx-bar{justify-content:flex-start}}
