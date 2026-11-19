@@ -215,3 +215,11 @@
 .ms-e-legend span{display:inline-flex;align-items:center;gap:7px;border-radius:999px;padding:6px 12px;font-size:13px;font-weight:600;background:rgba(255,255,255,.05);border:1px solid rgba(120,170,235,.16)}
 .ms-e-legend i{width:8px;height:8px;border-radius:50%}
 @media (max-width:640px){.ms-e-chart{height:200px}.ms-e-tag{font-size:10px}.ms-e-launch{display:none}}
+
+/* About: "Why Businesses Choose Digital Rewards" (19 Nov) */
+.ab-why{margin:0;padding:0;list-style:none;max-width:none;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+.ab-why .v2-tile{padding:24px}
+.ab-why h3{font-size:22px}
+.ab-why p{font-size:16px}
+.ab-why-hd{display:flex;justify-content:space-between;align-items:flex-start}
+.ab-why-n{font-size:44px;font-weight:800;line-height:1;opacity:.35;letter-spacing:-.03em}
