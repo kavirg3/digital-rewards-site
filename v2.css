@@ -206,3 +206,12 @@
 .hx-bar{margin-top:28px;padding:16px 22px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:14px 24px}
 .hx-div{width:1px;align-self:stretch;background:rgba(120,170,235,.22)}
 @media (max-width:900px){.hx-a,.hx-c{grid-template-columns:1fr}.hx-div{display:none}.hx-bar{justify-content:flex-start}}
+
+/* Home 'how we measure' = option E, one story chart (19 Nov) */
+.ms-e{padding:24px;display:flex;flex-direction:column;gap:16px}
+.ms-e-chart{position:relative;height:250px}
+.ms-e-tag{position:absolute;font-size:11px;font-weight:700;border-radius:999px;padding:4px 10px;white-space:nowrap}
+.ms-e-legend{display:flex;flex-wrap:wrap;gap:8px}
+.ms-e-legend span{display:inline-flex;align-items:center;gap:7px;border-radius:999px;padding:6px 12px;font-size:13px;font-weight:600;background:rgba(255,255,255,.05);border:1px solid rgba(120,170,235,.16)}
+.ms-e-legend i{width:8px;height:8px;border-radius:50%}
+@media (max-width:640px){.ms-e-chart{height:200px}.ms-e-tag{font-size:10px}.ms-e-launch{display:none}}
