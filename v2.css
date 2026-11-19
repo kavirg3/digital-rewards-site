@@ -285,3 +285,10 @@
 .ta-small .ab-photo{max-width:340px}
 @media (max-width:900px){.ta-strip{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (max-width:520px){.ta-strip{grid-template-columns:1fr}}
+
+/* About: story behind the founder photo (19 Nov) */
+.ta-pcol{display:flex;flex-direction:column;align-items:center;gap:14px;min-width:0}
+.ta-pcol .ab-photo{width:100%}
+.ta-story{margin:0;max-width:340px;width:100%;box-sizing:border-box;padding:14px 16px;border-radius:16px;background:rgba(5,7,13,.6);border:1px dashed rgba(158,139,255,.45);font-size:13px;line-height:1.5;color:#C4D4EE}
+.ta-story b{display:block;margin-bottom:4px;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#C4B8FF}
+@media (max-width:620px){.ta-pcol{align-items:flex-start}}
