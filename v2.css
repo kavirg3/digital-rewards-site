@@ -248,3 +248,13 @@
 /* Loyalty Software: "Who should choose" comparison (19 Nov) */
 #which .v2-path h3,#which .v2-path.mg h3{font-size:clamp(21px,2.4vw,26px)}
 @media (max-width:620px){#which .v2-path.mg>div:first-child{flex-direction:column-reverse;gap:10px}#which .v2-path.mg .v2-badge{align-self:flex-start}}
+
+/* Plain assessment / demo form (replaced the six-stamp card, 19 Nov) */
+.af{flex:1 1 380px;max-width:460px;min-width:0;margin:0 auto;padding:26px;border-radius:24px;border:2px solid rgba(158,139,255,.5);box-shadow:inset 0 -2px 0 #9E8BFF,0 30px 60px -24px rgba(158,139,255,.6)}
+.af-form{display:flex;flex-direction:column;gap:12px}
+.af-hd{display:flex;flex-direction:column;gap:4px;margin-bottom:4px}
+.af-hd h3{margin:0;font-size:24px;font-weight:800;letter-spacing:-.01em}
+.af-hd p{margin:0;font-size:14px;color:#A9BDDF}
+.af input:not([type=checkbox]),.af select,.af textarea{background:rgba(5,7,13,.75);box-shadow:none}
+.af .cta{width:100%;margin-top:4px}
+@media (max-width:620px){.af{padding:20px}.af-hd h3{font-size:21px}}
