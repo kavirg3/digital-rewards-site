@@ -258,3 +258,14 @@
 .af input:not([type=checkbox]),.af select,.af textarea{background:rgba(5,7,13,.75);box-shadow:none}
 .af .cta{width:100%;margin-top:4px}
 @media (max-width:620px){.af{padding:20px}.af-hd h3{font-size:21px}}
+
+/* Home assessment = layout A "compact split" + two-column form (19 Nov) */
+.af2{max-width:none}
+.af2 .af-form{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px 14px}
+.af2 .af-form>*{grid-column:1/-1}
+.af2 .af-form>div:nth-of-type(n+4):nth-of-type(-n+7){grid-column:auto}
+.af2 .af-form>.cta{justify-self:start;width:auto;padding:0 34px}
+@media (max-width:700px){.af2 .af-form{grid-template-columns:1fr}.af2 .af-form>*{grid-column:1/-1!important}.af2 .af-form>.cta{width:100%}}
+.as-a{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:44px;align-items:start}
+.as-l{display:flex;flex-direction:column;gap:20px;min-width:0}
+@media (max-width:900px){.as-a{grid-template-columns:1fr}}
