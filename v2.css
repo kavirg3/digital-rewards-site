@@ -244,3 +244,7 @@
 .wk-price small{font-size:15px;font-weight:500;color:#F6D9A8}
 @media (max-width:1000px){.wk-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (max-width:620px){.wk-grid{grid-template-columns:1fr}.wk-sum .hx-div{display:none}.wk-sum .cta{width:100%}}
+
+/* Loyalty Software: "Who should choose" comparison (19 Nov) */
+#which .v2-path h3,#which .v2-path.mg h3{font-size:clamp(21px,2.4vw,26px)}
+@media (max-width:620px){#which .v2-path.mg>div:first-child{flex-direction:column-reverse;gap:10px}#which .v2-path.mg .v2-badge{align-self:flex-start}}
