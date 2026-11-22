@@ -20,8 +20,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&display=swap">
-<link rel="stylesheet" href="styles.css?v=202611221200">
-<link rel="stylesheet" href="v2.css?v=202611221200">
+<link rel="stylesheet" href="styles.css?v=202611221300">
+<link rel="stylesheet" href="v2.css?v=202611221300">
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -136,7 +136,7 @@
 <h2 class="v2-h2">How Much Revenue Are You <span class="v2-y">Leaving on the Table?</span></h2>
 <p class="v2-sub">Slide to your own numbers.</p>
 </div>
-<div class="v2-roi" data-roi data-roi-fee="4995">
+<div class="v2-roi" data-roi data-roi-fee="2495">
 <div class="glass v2-roi-in">
 <div class="v2-sl"><div class="t"><label for="r1">Monthly customers</label><strong data-roi-out="cust">500</strong></div><input id="r1" type="range" min="50" max="5000" step="50" value="500" data-roi-in="cust"></div>
 <div class="v2-sl"><div class="t"><label for="r2">Average customer spend</label><strong data-roi-out="spend">R250</strong></div><input id="r2" type="range" min="30" max="2000" step="10" value="250" data-roi-in="spend"></div>
@@ -149,10 +149,10 @@
 <div class="v2-stats">
 <div class="v2-stat"><small>Over 12 months</small><b style="color: #FFE81F" data-roi-out="year">R300,000</b></div>
 <div class="v2-stat"><small>Extra visits a month</small><b style="color: #38BDF8">+<span data-roi-out="extra">100</span></b></div>
-<div class="v2-stat"><small>Covers Managed Growth</small><b style="color: #9E8BFF" data-roi-out="times">5x</b></div>
+<div class="v2-stat"><small>Covers the Growth plan</small><b style="color: #9E8BFF" data-roi-out="times">10x</b></div>
 </div>
 <div class="v2-vsbar">
-<span>Managed Growth fee · R4,995 a month</span><div class="bar"><span data-roi-bar="fee" style="width: 20%; background: #9E8BFF; box-shadow: 0 0 12px rgba(158,139,255,0.7)"></span></div>
+<span>Growth plan fee · R2,495 a month</span><div class="bar"><span data-roi-bar="fee" style="width: 10%; background: #9E8BFF; box-shadow: 0 0 12px rgba(158,139,255,0.7)"></span></div>
 <span>Extra revenue · <span data-roi-out="month">R25,000</span> a month</span><div class="bar"><span data-roi-bar="rev" style="width: 100%; background: #FFE81F; box-shadow: 0 0 12px rgba(255,232,31,0.6)"></span></div>
 </div>
 <div class="v2-row" style="justify-content: space-between">
@@ -192,7 +192,7 @@
 <div class="glass wk-sum">
 <div class="wk-count"><b>20</b><span>hands-on tasks<br>every month</span></div>
 <span class="hx-div"></span>
-<div class="wk-price"><span>All of this for</span><b>R4,995<small> /month</small></b><span>About R250 a task, and less than hiring a part-time marketer.</span></div>
+<div class="wk-price"><span>All of this for</span><b>R2,495<small> /month</small></b><span>About R125 a task, and less than hiring a part-time marketer.</span></div>
 <a class="cta" href="#assessment">Apply for Managed Growth</a>
 </div>
 <p class="v2-fine">Example delivery calendar. The actual workload is agreed in each client's package.</p>
@@ -202,23 +202,30 @@
 <section id="plans" class="v2-sec">
 <div class="v2-in" style="gap: 24px">
 <div class="v2-head"><span class="v2-kick">Plans</span><h2 class="v2-h2">Managed Growth <span class="v2-v">Plans.</span></h2></div>
-<div class="v2-plans" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr))">
-<div class="glass v2-plan feat" style="--pc: #9E8BFF; ">
-<div style="display: flex; justify-content: space-between; align-items: center; gap: 8px"><h4 style="color: #9E8BFF">Managed Growth</h4><span class="v2-badge">Most popular</span></div>
-<div class="v2-price">R4,995<small> /month</small></div>
-<p>We plan it, build it and run it.</p>
-<ul><li>Everything in DIY Growth</li><li>Loyalty programme strategy</li><li>Complete programme setup</li><li>Campaign creation and management</li><li>Customer reactivation campaigns</li><li>Monthly performance reporting</li></ul>
-<a class="cta" href="#assessment">Apply for Managed Growth</a>
+<div class="pr" data-pr style="display: flex; flex-direction: column; gap: 24px">
+<div class="pr-top"><div class="pr-tg"><span class="pr-lm on">Monthly</span><button type="button" class="pr-sw" role="switch" aria-checked="false" aria-label="Pay yearly"></button><span class="pr-ly">Yearly</span><span class="pr-save">2 months free</span></div></div>
+<div class="pr-grid two">
+<div class="glass pr-card feat" style="--pc: #9E8BFF">
+<div class="pr-hd"><h4>Growth</h4><span class="v2-badge">Most popular</span></div>
+<p class="pr-tag">We run it all for you.</p>
+<div class="v2-price"><span class="pr-m">R2,495</span><span class="pr-y"><span class="pr-was">R2,495</span>R2,079</span><small> /month</small></div>
+<div class="pr-bill"><span class="pr-m">Billed monthly · 6-month minimum</span><span class="pr-y">R24,950 paid yearly upfront · <b>save R4,990</b></span></div>
+<div class="pr-setup">Setup <b>R2,500</b> once, done in person</div>
+<ul><li>Everything in Starter</li><li>Loyalty strategy for your shop</li><li>Campaigns created and run</li><li>Win-back campaigns</li><li>Referral programme</li><li>Monthly performance report</li></ul>
+<a class="cta" href="#assessment">Get Started</a>
 </div>
-<div class="glass v2-plan dim" style="--pc: #FFE81F">
-<div style="display: flex; justify-content: space-between; align-items: center; gap: 8px"><h4 style="color: #FFE81F">Managed Growth Pro</h4></div>
-<div class="v2-price">R7,995+<small> /month</small></div>
-<p>For more branches and bigger plans.</p>
-<ul><li>Everything in Managed Growth</li><li>Multiple locations</li><li>Promotional calendar</li><li>Deeper reporting</li><li>Ongoing growth optimisation</li><li>Priced to your workload</li></ul>
-<a class="edge" href="#assessment">Request a Proposal</a>
+<div class="glass pr-card" style="--pc: #FFE81F; --c: #FFE81F">
+<h4>Franchise</h4>
+<p class="pr-tag">For groups and many branches.</p>
+<div class="v2-price">Custom</div>
+<div class="pr-bill">Priced on branches and workload</div>
+<div class="pr-setup">Setup <b>quoted</b> per branch</div>
+<ul><li>Everything in Growth</li><li>Every branch on one card</li><li>All branches in one report</li><li>Brand-wide campaigns</li><li>Promotional calendar</li><li>Your own account manager</li></ul>
+<a class="edge" href="#assessment">Request a Quote</a>
 </div>
 </div>
-<p class="v2-fine">Indicative pricing in ZAR, confirmed in your proposal. Agreed implementation fees may apply. Prefer to run it yourself? <a href="loyalty-software">See Loyalty Software</a>.</p>
+<p class="v2-fine" style="text-align: center">Prices in ZAR. Yearly plans are paid upfront. Setup is a once-off fee for the in-person setup by your local partner. Prefer to run it yourself? <a href="loyalty-software">See Loyalty Software</a>.</p>
+</div>
 </div>
 </section>
 
@@ -238,7 +245,7 @@
 <a class="ph-btn" href="tel:0732532235" data-tel><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#38BDF8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg><span data-tel-text>073 253 2235</span></a>
 </div>
 <figure class="jq glass">
-<img src="media/jason-face.jpg?v=202611221200" alt="Jason Greer" width="64" height="64">
+<img src="media/jason-face.jpg?v=202611221300" alt="Jason Greer" width="64" height="64">
 <div class="jq-body">
 <blockquote>“It’s not that you’re doing anything wrong. It’s just harder than ever to grow without support.”</blockquote>
 <figcaption><strong>Jason Greer</strong> · Host of The Bachelor South Africa</figcaption>
@@ -289,8 +296,8 @@
 </footer>
 
 </div>
-<script src="config.js?v=202611221200"></script>
-<script src="site.js?v=202611221200"></script>
-<script src="v2.js?v=202611221200"></script>
+<script src="config.js?v=202611221300"></script>
+<script src="site.js?v=202611221300"></script>
+<script src="v2.js?v=202611221300"></script>
 </body>
 </html>

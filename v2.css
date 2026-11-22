@@ -370,3 +370,6 @@
 .pr-card.feat{transform:translateY(-10px)}
 .pr-hd{display:flex;justify-content:space-between;align-items:center;gap:8px}
 @media (max-width:900px){.pr-grid{grid-template-columns:1fr}.pr-card.feat{transform:none;order:-1}}
+.pr-grid.two{grid-template-columns:repeat(2,1fr);max-width:860px;width:100%;margin:0 auto}
+.pr-grid.one{grid-template-columns:minmax(0,440px);justify-content:center}
+@media (max-width:900px){.pr-grid.two,.pr-grid.one{grid-template-columns:1fr}}
