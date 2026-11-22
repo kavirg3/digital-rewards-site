@@ -9,6 +9,8 @@ window.DR_CONFIG = {
   hours: "",
   // Where the lead form posts (JSON, POST). Leave empty to send the lead by WhatsApp instead.
   leadEndpoint: "https://sentiv-proxy-production.up.railway.app/api/rewards/web-lead",
+  // Where the Area Partner application form posts (kept apart from sales leads).
+  partnerEndpoint: "https://sentiv-proxy-production.up.railway.app/api/rewards/partner-apply",
   // Google Analytics 4 measurement ID, e.g. "G-XXXXXXXXXX"
   ga4: "",
   // Meta Pixel ID, e.g. "123456789012345"

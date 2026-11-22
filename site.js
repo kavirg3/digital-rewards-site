@@ -175,8 +175,10 @@
       if (d.website) return; // honeypot
       d.page = location.pathname;
       if (submit) submit.disabled = true;
-      if (C.leadEndpoint) {
-        fetch(C.leadEndpoint, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(d) })
+      // Area Partner applications go to their own route, never into the sales leads.
+      var endpoint = form.getAttribute("data-lead-form") === "partner" ? C.partnerEndpoint : C.leadEndpoint;
+      if (endpoint) {
+        fetch(endpoint, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(d) })
           .then(function (r) { if (!r.ok) throw new Error(r.status); done(); })
           .catch(function () { fail("Sorry, that did not send. Please try again or WhatsApp us."); });
       } else if (waDigits) {
