@@ -171,7 +171,9 @@
       e.preventDefault();
       if (err) err.hidden = true;
       var d = {};
-      new FormData(form).forEach(function (val, key) { d[key] = String(val).trim(); });
+      // A field that appears more than once (the Languages tick boxes) arrives as "a,b,c".
+      new FormData(form).forEach(function (val, key) { val = String(val).trim(); d[key] = key in d ? d[key] + "," + val : val; });
+      if (form.querySelector('input[name="languages"]') && !d.languages) { fail("Please tick at least one language."); return; }
       if (d.website) return; // honeypot
       d.page = location.pathname;
       if (submit) submit.disabled = true;
@@ -179,7 +181,13 @@
       var endpoint = form.getAttribute("data-lead-form") === "partner" ? C.partnerEndpoint : C.leadEndpoint;
       if (endpoint) {
         fetch(endpoint, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(d) })
-          .then(function (r) { if (!r.ok) throw new Error(r.status); done(); })
+          .then(function (r) {
+            if (r.ok) return done();
+            // The server says exactly what is missing (a 400); show that, not a vague failure.
+            return r.json().catch(function () { return {}; }).then(function (j) {
+              fail(r.status === 400 && j && j.error ? j.error : "Sorry, that did not send. Please try again or WhatsApp us.");
+            });
+          })
           .catch(function () { fail("Sorry, that did not send. Please try again or WhatsApp us."); });
       } else if (waDigits) {
         var msg = "Hi Digital Rewards, I'd like a free growth assessment.\n" +

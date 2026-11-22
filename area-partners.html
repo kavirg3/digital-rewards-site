@@ -20,8 +20,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&display=swap">
-<link rel="stylesheet" href="styles.css?v=202611221500">
-<link rel="stylesheet" href="v2.css?v=202611221500">
+<link rel="stylesheet" href="styles.css?v=202611221600">
+<link rel="stylesheet" href="v2.css?v=202611221600">
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -67,19 +67,32 @@
 </div>
 <div data-if="notSent">
 <form data-lead-form="partner" class="af-form">
-<div class="af-hd"><h3>Apply now</h3><p>Takes about a minute.</p></div>
+<div class="af-hd"><h3>Apply now</h3><p>Takes about two minutes.</p></div>
 <div class="pass-two">
 <div class="pf"><label for="p-name">Name</label><input id="p-name" name="name" type="text" autocomplete="name" required></div>
+<div class="pf"><label for="p-wa">WhatsApp number</label><input id="p-wa" name="whatsapp" type="tel" autocomplete="tel" pattern="[0-9+ ]{10,15}" title="Enter a phone number, for example 082 123 4567" required></div>
+</div>
+<div class="pass-two">
+<div class="pf"><label for="p-email">Email</label><input id="p-email" name="email" type="email" autocomplete="email" required></div>
 <div class="pf"><label for="p-city">City</label><select id="p-city" name="city" required><option value="">Choose one</option><option>Johannesburg</option><option>Durban</option></select></div>
 </div>
 <div class="pass-two">
-<div class="pf"><label for="p-wa">WhatsApp number</label><input id="p-wa" name="whatsapp" type="tel" autocomplete="tel" pattern="[0-9+ ]{10,15}" title="Enter a phone number, for example 082 123 4567" required></div>
-<div class="pf"><label for="p-email">Email</label><input id="p-email" name="email" type="email" autocomplete="email" required></div>
+<div class="pf"><label for="p-suburb">Suburb you live in</label><input id="p-suburb" name="suburb" type="text" autocomplete="address-level3" placeholder="e.g. Sandton or Umhlanga" required></div>
+<div class="pf"><label for="p-heard">Where did you hear about us</label><select id="p-heard" name="heard" required><option value="">Choose one</option><option>LinkedIn</option><option>Pnet</option><option>WhatsApp</option><option>A friend</option><option>Other</option></select></div>
 </div>
 <div class="pass-two">
 <div class="pf"><label for="p-exp">Sales experience</label><select id="p-exp" name="experience" required><option value="">Choose one</option><option>No sales experience yet</option><option>Less than 1 year</option><option>1 to 3 years</option><option>More than 3 years</option></select></div>
+<div class="pf"><label for="p-work">What you do now</label><select id="p-work" name="work" required><option value="">Choose one</option><option>Full-time job</option><option>Part-time job</option><option>Self-employed</option><option>Not working right now</option></select></div>
+</div>
+<div class="pass-two">
+<div class="pf"><label for="p-hours">Hours a week</label><select id="p-hours" name="hours" required><option value="">Choose one</option><option>Under 10 hours</option><option>10 to 20 hours</option><option>More than 20 hours</option></select></div>
 <div class="pf"><label for="p-car">Own transport</label><select id="p-car" name="car" required><option value="">Choose one</option><option value="yes">Yes</option><option value="no">No</option></select></div>
 </div>
+<div class="pass-two">
+<div class="pf"><label for="p-laptop">Own laptop</label><select id="p-laptop" name="laptop" required><option value="">Choose one</option><option value="yes">Yes</option><option value="no">No</option></select></div>
+<div class="pf"><label for="p-li">LinkedIn profile <span style="text-transform: none; letter-spacing: 0; font-weight: 500; color: #A9BDDF">(optional)</span></label><input id="p-li" name="linkedin" type="text" inputmode="url" autocapitalize="off" placeholder="linkedin.com/in/your-name"></div>
+</div>
+<fieldset class="pf ap-langs"><legend>Languages you speak</legend><div><label><input type="checkbox" name="languages" value="English"><span>English</span></label><label><input type="checkbox" name="languages" value="isiZulu"><span>isiZulu</span></label><label><input type="checkbox" name="languages" value="Afrikaans"><span>Afrikaans</span></label><label><input type="checkbox" name="languages" value="Sesotho"><span>Sesotho</span></label><label><input type="checkbox" name="languages" value="isiXhosa"><span>isiXhosa</span></label><label><input type="checkbox" name="languages" value="Setswana"><span>Setswana</span></label><label><input type="checkbox" name="languages" value="Sepedi"><span>Sepedi</span></label><label><input type="checkbox" name="languages" value="Other"><span>Other</span></label></div></fieldset>
 <div class="pf"><label for="p-about">Tell us about yourself <span style="text-transform: none; letter-spacing: 0; font-weight: 500; color: #A9BDDF">(optional)</span></label><textarea id="p-about" name="about" rows="3"></textarea></div>
 <label style="display: flex; gap: 10px; align-items: flex-start; font-size: 12px; color: #C4D4EE"><input type="checkbox" name="consent" required><span>I agree that Digital Rewards may contact me about this application and process my details in line with POPIA.</span></label>
 <p data-form-error role="alert" hidden style="margin: 0; color: #FF9CAC; font-size: 14px"></p>
@@ -102,8 +115,8 @@
 </footer>
 
 </div>
-<script src="config.js?v=202611221500"></script>
-<script src="site.js?v=202611221500"></script>
-<script src="v2.js?v=202611221500"></script>
+<script src="config.js?v=202611221600"></script>
+<script src="site.js?v=202611221600"></script>
+<script src="v2.js?v=202611221600"></script>
 </body>
 </html>

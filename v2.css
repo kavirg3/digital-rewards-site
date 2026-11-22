@@ -406,3 +406,13 @@
 .ap-box{max-width:none;margin:0}
 @media (max-width:900px){.ap .as-a{grid-template-columns:1fr;gap:32px}}
 @media (max-width:560px){.ap-earn{grid-template-columns:1fr}.ap-earn li{flex-direction:row;align-items:center;gap:14px}.ap-earn b{min-width:96px}}
+.ap-box .pass-two .pass-two{gap:10px}
+.ap-langs{border:0;margin:0;padding:0;min-width:0}
+.ap-langs legend{padding:0;margin-bottom:6px;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#C4B8FF}
+.ap-langs div{display:flex;flex-wrap:wrap;gap:8px}
+.ap-langs label{position:relative;cursor:pointer}
+.ap-langs input{position:absolute;opacity:0;width:1px;height:1px}
+.ap-langs span{display:inline-flex;align-items:center;min-height:38px;padding:0 14px;border-radius:999px;font-size:14px;color:#C4D4EE;background:rgba(5,7,13,.75);border:1px solid rgba(120,170,235,.22)}
+.ap-langs input:checked+span{color:#070119;background:linear-gradient(180deg,#A588FC,#7C52FB);border-color:transparent;font-weight:700}
+.ap-langs input:focus-visible+span{outline:2px solid #9E8BFF;outline-offset:2px}
+.ap-langs label{text-transform:none;letter-spacing:0;font-weight:500}
