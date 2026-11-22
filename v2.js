@@ -163,3 +163,18 @@
     if (h && h === here) a.classList.add("on");
   });
 })();
+
+/* Pricing: monthly / yearly switch */
+(function () {
+  Array.prototype.forEach.call(document.querySelectorAll("[data-pr]"), function (root) {
+    function set(yr) {
+      root.classList.toggle("yr", yr);
+      Array.prototype.forEach.call(root.querySelectorAll(".pr-sw"), function (s) { s.setAttribute("aria-checked", yr ? "true" : "false"); });
+      Array.prototype.forEach.call(root.querySelectorAll(".pr-lm"), function (e) { e.classList.toggle("on", !yr); });
+      Array.prototype.forEach.call(root.querySelectorAll(".pr-ly"), function (e) { e.classList.toggle("on", yr); });
+    }
+    Array.prototype.forEach.call(root.querySelectorAll(".pr-sw"), function (s) { s.addEventListener("click", function () { set(s.getAttribute("aria-checked") !== "true"); }); });
+    Array.prototype.forEach.call(root.querySelectorAll(".pr-lm"), function (e) { e.addEventListener("click", function () { set(false); }); });
+    Array.prototype.forEach.call(root.querySelectorAll(".pr-ly"), function (e) { e.addEventListener("click", function () { set(true); }); });
+  });
+})();

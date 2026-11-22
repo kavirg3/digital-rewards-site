@@ -336,3 +336,37 @@
 .dsel-ic{flex:none;display:grid;place-items:center;color:var(--c)}
 .dsel-list .dsel-ic{width:32px;height:32px;border-radius:50%;background:color-mix(in srgb,var(--c) 16%,transparent);border:1px solid rgba(255,255,255,.12)}
 .dsel-btn .dsel-ic{width:22px;height:22px}
+/* Pricing v3 (22 Nov 2026): Starter / Growth / Franchise, yearly switch, "every plan includes" pills */
+.pr-top{display:flex;flex-direction:column;align-items:center;gap:14px;text-align:center}
+.pr-tg{display:inline-flex;align-items:center;gap:12px;font-size:15px;font-weight:600;color:#A9BDDF}
+.pr-tg .on{color:#fff}
+.pr-lm,.pr-ly{cursor:pointer}
+.pr-sw{position:relative;width:56px;height:32px;border-radius:999px;border:1px solid rgba(158,139,255,.45);background:rgba(8,14,32,.7);cursor:pointer;padding:0;flex:none}
+.pr-sw::after{content:"";position:absolute;top:3px;left:3px;width:24px;height:24px;border-radius:50%;background:linear-gradient(180deg,#A588FC,#7C52FB);box-shadow:0 4px 12px -2px rgba(124,82,251,.9);transition:transform .25s}
+.pr-sw[aria-checked=true]::after{transform:translateX(24px)}
+.pr-sw:focus-visible{outline:2px solid #FFE81F;outline-offset:3px}
+@media (prefers-reduced-motion:reduce){.pr-sw::after{transition:none}}
+.pr-save{display:inline-flex;align-items:center;border-radius:999px;padding:4px 10px;font-size:12px;font-weight:700;color:#0A2A12;background:#5EF08A;white-space:nowrap}
+.pr .pr-y{display:none}
+.pr.yr .pr-y{display:revert}
+.pr.yr .pr-m{display:none}
+.pr-was{color:#7F93B8;text-decoration:line-through;font-size:18px;font-weight:600;margin-right:6px}
+.pr-bill{font-size:13px;color:#A9BDDF;min-height:20px}
+.pr-bill b{color:#5EF08A}
+.pr-setup{font-size:13px;color:#C4D4EE;padding:8px 12px;border-radius:12px;background:rgba(255,255,255,.04);border:1px solid rgba(120,170,235,.14)}
+.pr-setup b{color:#fff}
+.pr-inc{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:10px}
+.pr-inc strong{font-size:14px;color:#A9BDDF;font-weight:600;margin-right:4px}
+.pr-inc span{display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border-radius:999px;font-size:14px;font-weight:600;color:#EAF3FF;background:rgba(8,14,32,.6);border:1px solid rgba(120,170,235,.22)}
+.pr-ic{width:17px;height:17px;flex:none}
+.pr-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;align-items:stretch;padding-top:8px}
+.pr-card{padding:26px;border-radius:24px;display:flex;flex-direction:column;gap:14px}
+.pr-card h4{margin:0;font-size:13px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--pc)}
+.pr-tag{margin:0;font-size:15px;color:#C4D4EE}
+.pr-card ul{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:8px;font-size:14px;flex:1}
+.pr-card li{display:flex;gap:8px}
+.pr-card li::before{content:"✓";color:var(--pc);font-weight:800}
+.pr-card .cta,.pr-card .edge{min-height:50px}
+.pr-card.feat{transform:translateY(-10px)}
+.pr-hd{display:flex;justify-content:space-between;align-items:center;gap:8px}
+@media (max-width:900px){.pr-grid{grid-template-columns:1fr}.pr-card.feat{transform:none;order:-1}}
