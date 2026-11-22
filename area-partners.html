@@ -20,8 +20,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&display=swap">
-<link rel="stylesheet" href="styles.css?v=202611221600">
-<link rel="stylesheet" href="v2.css?v=202611221600">
+<link rel="stylesheet" href="styles.css?v=202611221700">
+<link rel="stylesheet" href="v2.css?v=202611221700">
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -57,7 +57,7 @@
 </ul>
 <p class="ap-fine">Commission only. Full training and booked meetings included.</p>
 </div>
-<div class="glass af ap-box" data-lead-box>
+<div class="glass af ap-box" id="apply" data-lead-box>
 <div data-if="sent" hidden>
 <div role="status" style="display: flex; flex-direction: column; gap: 12px; padding: 40px 10px; text-align: center; align-items: center">
 <div class="orb" style="color: #FFE81F"><svg class="neon" aria-hidden="true" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div>
@@ -102,6 +102,31 @@
 </div>
 </div>
 </section>
+<section id="earn" style="padding: 8px 24px 96px">
+<div style="max-width: 1100px; margin: 0 auto">
+<span class="v2-kick">Your earning potential</span>
+<h2 style="margin: 6px 0 6px; font-size: clamp(28px, 3.4vw, 42px); line-height: 1.06; letter-spacing: -0.03em; font-weight: 800">What do you want to <span style="color: #9E8BFF; text-shadow: 0 0 22px rgba(158,139,255,0.45)">earn?</span></h2>
+<p style="margin: 0 0 24px; color: #C4D4EE; font-size: 17px">Pick a goal. We'll show you the path to get there.</p>
+<div class="apc" data-apcalc>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><linearGradient id="apc-grad" x1="0" x2="1"><stop offset="0" stop-color="#A588FC"/><stop offset="1" stop-color="#FFE81F"/></linearGradient></defs></svg>
+<div class="glass apc-ctl">
+<div><div class="apc-lab" id="apc-goal-l">My monthly goal</div>
+<div class="apc-chips" role="radiogroup" aria-labelledby="apc-goal-l"><button type="button" role="radio" aria-checked="false" data-goal="10000">R10k</button><button type="button" role="radio" aria-checked="true" class="on" data-goal="20000">R20k</button><button type="button" role="radio" aria-checked="false" data-goal="30000">R30k</button><button type="button" role="radio" aria-checked="false" data-goal="50000">R50k</button></div></div>
+<div class="apc-sl"><label for="apc-pace">New clients I can sign a month <b data-apc="pace">3</b></label><input id="apc-pace" type="range" min="1" max="10" value="3" data-apc-pace></div>
+<div><div class="apc-lab" id="apc-plan-l">Plan</div>
+<div class="apc-seg" role="radiogroup" aria-labelledby="apc-plan-l"><button type="button" role="radio" aria-checked="false" data-fee="995">Starter R995</button><button type="button" role="radio" aria-checked="true" class="on" data-fee="2495">Growth R2,495</button></div></div>
+<span class="apc-pill">Each client adds <span data-apc="per">R998</span> to your monthly income</span>
+</div>
+<div class="glass feat apc-out" aria-live="polite">
+<div class="apc-ring"><svg width="220" height="220" viewBox="0 0 220 220" aria-hidden="true"><circle class="tr" cx="110" cy="110" r="94"/><circle class="fg" cx="110" cy="110" r="94" stroke-dasharray="590.6" stroke-dashoffset="590.6" data-apc-ring/></svg>
+<div class="mid"><b data-apc="need">21</b><span>clients to reach<br><strong data-apc="goal">R20,000</strong> a month</span></div></div>
+<div class="apc-facts"><div><small>Just</small><b data-apc="every">1 new client every 10 days</b></div><div><small>You hit your goal in</small><b class="apc-y" data-apc="months">7</b><small>months</small></div><div><small>After that, every client is</small><b class="apc-v" data-apc="raise">+R998</b><small>a month raise</small></div></div>
+<p class="apc-fine">Example only. Assumes half the clients you sign yourself and half from meetings we book, and that clients stay.</p>
+<a class="cta" href="#apply">Apply now</a>
+</div>
+</div>
+</div>
+</section>
 </main>
 
 <footer style="padding: 36px 24px; border-top: 1px solid rgba(120,170,235,0.16); background: rgba(11,13,17,0.74)">
@@ -115,8 +140,8 @@
 </footer>
 
 </div>
-<script src="config.js?v=202611221600"></script>
-<script src="site.js?v=202611221600"></script>
-<script src="v2.js?v=202611221600"></script>
+<script src="config.js?v=202611221700"></script>
+<script src="site.js?v=202611221700"></script>
+<script src="v2.js?v=202611221700"></script>
 </body>
 </html>

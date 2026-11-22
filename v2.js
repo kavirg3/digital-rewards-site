@@ -178,3 +178,41 @@
     Array.prototype.forEach.call(root.querySelectorAll(".pr-ly"), function (e) { e.addEventListener("click", function () { set(true); }); });
   });
 })();
+
+/* Area Partner earnings calculator: goal → clients needed (50% own / 30% booked, half each) */
+(function () {
+  var root = document.querySelector("[data-apcalc]");
+  if (!root) return;
+  var OWN = 0.5, BK = 0.3, RING = 590.6, MAXGOAL = 50000;
+  var st = { goal: 20000, pace: 3, fee: 2495 };
+  var R = function (n, cents) {
+    var s = (cents ? n.toFixed(2) : String(Math.round(n))).split(".");
+    var whole = s[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    return "R" + whole + (s[1] && s[1] !== "00" ? "." + s[1] : "");
+  };
+  var set = function (k, v) { Array.prototype.forEach.call(root.querySelectorAll('[data-apc="' + k + '"]'), function (e) { e.textContent = v; }); };
+  var render = function () {
+    var per = st.fee * (OWN + BK) / 2;
+    var need = Math.ceil(st.goal / per), months = Math.ceil(need / st.pace);
+    set("pace", st.pace); set("per", R(per, true)); set("need", need); set("goal", R(st.goal));
+    set("months", months); set("raise", "+" + R(per, true));
+    var wk = Math.round(st.pace / 4.33);
+    set("every", st.pace >= 4.3 ? wk + " new client" + (wk === 1 ? "" : "s") + " a week" : "1 new client every " + Math.round(30 / st.pace) + " days");
+    var ring = root.querySelector("[data-apc-ring]");
+    if (ring) ring.style.strokeDashoffset = String(RING * (1 - Math.min(1, st.goal / MAXGOAL)));
+  };
+  var group = function (sel, key, attr) {
+    var btns = root.querySelectorAll(sel);
+    Array.prototype.forEach.call(btns, function (b) {
+      b.addEventListener("click", function () {
+        Array.prototype.forEach.call(btns, function (x) { var on = x === b; x.classList.toggle("on", on); x.setAttribute("aria-checked", on ? "true" : "false"); });
+        st[key] = +b.getAttribute(attr); render();
+      });
+    });
+  };
+  group("[data-goal]", "goal", "data-goal");
+  group("[data-fee]", "fee", "data-fee");
+  var pace = root.querySelector("[data-apc-pace]");
+  if (pace) pace.addEventListener("input", function () { st.pace = +pace.value; render(); });
+  render();
+})();
