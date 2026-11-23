@@ -60,8 +60,16 @@
         });
       }, 2000);
     };
-    box.addEventListener("input", report);
-    box.addEventListener("click", function (e) { if (e.target.closest("[data-roi-pick] button")) report(); });
+    /* Remember the owner's numbers for this visit so the assessment form can send them with the lead */
+    var remember = function () {
+      var kept = Math.round(v.cust * v.share / 100);
+      var txt = "Calculator: " + num(v.cust) + " customers a month, " + rand(v.spend) + " average spend, " + v.share +
+        "% come back more, +" + v.visits + (v.visits === 1 ? " visit" : " visits") + " each = " + rand(kept * v.spend * v.visits) + " extra a month";
+      try { sessionStorage.setItem("dr-calc", txt); } catch (e) {}
+      try { document.dispatchEvent(new CustomEvent("dr-calc")); } catch (e) {}
+    };
+    box.addEventListener("input", function () { report(); remember(); });
+    box.addEventListener("click", function (e) { if (e.target.closest("[data-roi-pick] button")) { report(); remember(); } });
     run(null);
   });
 
@@ -72,13 +80,17 @@
     var hidden = form.querySelector('input[name="challenge"]');
     if (!interest || !hidden) return;
     var sync = function () {
-      var parts = [];
+      var parts = [], calc = "";
+      try { calc = sessionStorage.getItem("dr-calc") || ""; } catch (e) {}
       if (interest.value) parts.push("Wants: " + interest.value);
+      if (calc) parts.push(calc);
       if (note && note.value.trim()) parts.push(note.value.trim());
       hidden.value = parts.join(". ");
     };
     form.addEventListener("input", sync);
     form.addEventListener("change", sync);
+    form.addEventListener("submit", sync, true);
+    document.addEventListener("dr-calc", sync);
     sync();
   });
 
