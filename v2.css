@@ -544,3 +544,20 @@
 .rf-link span{white-space:normal;overflow-wrap:anywhere;line-height:1.3}
 .rf-who span{display:inline-block;min-height:0;line-height:20px;padding:8px 14px}
 .rf-who i{font-style:normal;margin-right:7px}
+/* Refer a business: top strip (option 5) + thanks-screen card (option 2), 23 Nov. JS end of v2.js */
+.rs-strip{position:relative;z-index:21;display:flex;align-items:center;background:linear-gradient(90deg,#4B2BB5,#7C52FB 55%,#B83A63)}
+.rs-go{flex:1;min-width:0;display:flex;align-items:center;justify-content:center;gap:10px;padding:9px 8px 9px 16px;min-height:40px;box-sizing:border-box;font-size:14px;font-weight:600;color:#fff;text-decoration:none}
+.rs-go:hover{color:#fff}
+.rs-go b{color:#FFE81F}
+.rs-t{min-width:0}
+.rs-arrow{flex:none;width:26px;height:26px;border-radius:50%;display:grid;place-items:center;background:rgba(0,0,0,.2);transition:transform .15s}
+.rs-go:hover .rs-arrow{transform:translateX(3px)}
+.rs-x{flex:none;width:44px;height:40px;border:0;background:none;color:rgba(255,255,255,.8);font:inherit;font-size:20px;line-height:1;cursor:pointer}
+.rs-x:hover{color:#fff}
+@media (max-width:620px){.rs-go{justify-content:flex-start;font-size:13px;line-height:1.3;padding-left:14px}}
+.rs-thanks{margin-top:10px;width:100%;max-width:420px;box-sizing:border-box;border-radius:18px;padding:18px;text-align:left;background:linear-gradient(150deg,rgba(255,122,144,.22),rgba(158,139,255,.12));border:1px solid rgba(255,122,144,.45);display:flex;flex-direction:column;gap:10px}
+.rs-thanks b{font-size:18px;line-height:1.25;color:#fff}
+.rs-thanks b b{color:#FFE81F}
+.rs-thanks span{font-size:14px;color:#DCE6F7}
+.rs-btn{display:inline-flex;align-items:center;justify-content:center;min-height:46px;border-radius:12px;font-size:15px;font-weight:700;color:#03210F;background:#25D366;text-decoration:none}
+.rs-btn:hover{color:#03210F;filter:brightness(1.06)}

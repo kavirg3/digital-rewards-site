@@ -329,3 +329,38 @@
     form.reset(); out.hidden = true; form.hidden = false; form.querySelector("input").focus();
   });
 })();
+
+/* Refer a business: strip above the top bar (option 5) + card on the "thanks" screen of the
+   assessment forms (option 2), 23 Nov 2026. Wording lives here so it changes in one place. */
+(function () {
+  var T = {
+    strip: 'Refer a business, get <b>R1,000</b> to spend there',
+    head: 'Know another owner? Get <b>R1,000</b> to spend at their place.',
+    sub: 'Send them your link. If they join, the R1,000 goes on their loyalty card in your phone.',
+    btn: 'Get my share link'
+  };
+  var here = location.pathname.replace(/\.html$/, "").split("/").pop();
+  if (here === "refer") return;
+  var hidden = false;
+  try { hidden = localStorage.getItem("dr-refstrip-off") === "1"; } catch (e) {}
+  var header = document.querySelector("header");
+  if (header && !hidden) {
+    var bar = document.createElement("div");
+    bar.className = "rs-strip";
+    bar.innerHTML = '<a href="refer" class="rs-go"><span class="rs-ic" aria-hidden="true">🎁</span><span class="rs-t">' + T.strip + '</span><span class="rs-arrow" aria-hidden="true">→</span></a>' +
+      '<button type="button" class="rs-x" aria-label="Hide this message">×</button>';
+    header.parentNode.insertBefore(bar, header);
+    bar.querySelector(".rs-go").addEventListener("click", function () { try { if (window.gtag) window.gtag("event", "referral_strip_click"); } catch (e) {} });
+    bar.querySelector(".rs-x").addEventListener("click", function () { bar.remove(); try { localStorage.setItem("dr-refstrip-off", "1"); } catch (e) {} });
+  }
+  Array.prototype.forEach.call(document.querySelectorAll('form[data-lead-form]:not([data-lead-form="partner"])'), function (form) {
+    var box = form.closest("[data-lead-box], .glass") || form.parentNode;
+    var st = box.querySelector('[data-if="sent"] [role="status"]');
+    if (!st || st.querySelector(".rs-thanks")) return;
+    var c = document.createElement("div");
+    c.className = "rs-thanks";
+    c.innerHTML = "<b>" + T.head + "</b><span>" + T.sub + '</span><a class="rs-btn" href="refer#get-link">' + T.btn + "</a>";
+    c.querySelector("a").addEventListener("click", function () { try { if (window.gtag) window.gtag("event", "referral_thanks_click"); } catch (e) {} });
+    st.appendChild(c);
+  });
+})();
