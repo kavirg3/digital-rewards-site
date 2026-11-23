@@ -11,6 +11,8 @@ window.DR_CONFIG = {
   leadEndpoint: "https://sentiv-proxy-production.up.railway.app/api/rewards/web-lead",
   // Where the Area Partner application form posts (kept apart from sales leads).
   partnerEndpoint: "https://sentiv-proxy-production.up.railway.app/api/rewards/partner-apply",
+  // Where the Refer a business page gets a personal share code.
+  referrerEndpoint: "https://sentiv-proxy-production.up.railway.app/api/rewards/referrer",
   // Google Analytics 4 measurement ID, e.g. "G-XXXXXXXXXX"
   ga4: "G-V5GFM1ZWYL",
   // Meta Pixel ID, e.g. "123456789012345"

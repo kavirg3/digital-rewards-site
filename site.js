@@ -8,6 +8,21 @@
     }
   } catch (e) {}
 })();
+/* Refer a business: a visit through someone's link (?ref=CODE) is remembered for 60 days so the
+   assessment form can say who referred this business. The code is taken out of the address bar. */
+(function () {
+  try {
+    var m = location.search.match(/[?&]ref=([A-Za-z0-9]{6})(?:&|$)/);
+    if (!m) return;
+    var code = m[1].toUpperCase(), mine = "";
+    try { mine = (JSON.parse(localStorage.getItem("dr-my-ref") || "{}").code) || ""; } catch (e) {}
+    if (code !== mine) localStorage.setItem("dr-ref", JSON.stringify({ code: code, at: Date.now() }));
+    if (history.replaceState) {
+      var q = location.search.replace(/([?&])ref=[^&]*&?/, "$1").replace(/[?&]$/, "");
+      history.replaceState(null, "", location.pathname + q + location.hash);
+    }
+  } catch (e) {}
+})();
 (function () {
   "use strict";
   var C = window.DR_CONFIG || {};
@@ -175,6 +190,9 @@
       new FormData(form).forEach(function (val, key) { val = String(val).trim(); d[key] = key in d ? d[key] + "," + val : val; });
       if (form.querySelector('input[name="languages"]') && !d.languages) { fail("Please tick at least one language."); return; }
       if (d.website) return; // honeypot
+      if (form.getAttribute("data-lead-form") !== "partner") {
+        try { var rf = JSON.parse(localStorage.getItem("dr-ref") || "null"); if (rf && rf.code && Date.now() - rf.at < 60 * 864e5) d.ref = rf.code; } catch (e2) {}
+      }
       d.page = location.pathname;
       if (submit) submit.disabled = true;
       // Area Partner applications go to their own route, never into the sales leads.

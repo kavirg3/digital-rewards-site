@@ -263,3 +263,69 @@
   if (pace) pace.addEventListener("input", function () { st.pace = +pace.value; render(); });
   render();
 })();
+
+/* Refer a business page: get a personal share link, then share it (23 Nov 2026).
+   The proxy gives the same code for the same number, so the link is kept in this browser too. */
+(function () {
+  var box = document.querySelector("[data-ref-box]");
+  if (!box) return;
+  var C = window.DR_CONFIG || {};
+  var form = box.querySelector("[data-ref-form]"), out = box.querySelector("[data-ref-out]");
+  var err = box.querySelector("[data-ref-error]"), submit = form.querySelector('button[type="submit"]');
+  var linkOf = function (code) { return "https://digitalrewards.co.za/?ref=" + code; };
+  var msgOf = function (code) { return "Hi! Your place should have a rewards card for regulars like me. Digital Rewards sets it up on Apple and Google Wallet, and the assessment is free: " + linkOf(code); };
+  var ev = function (name, p) { try { if (window.gtag) window.gtag("event", name, p || {}); } catch (e) {} };
+  var show = function (code, name) {
+    box.querySelector("[data-ref-url]").textContent = linkOf(code).replace(/^https:\/\//, "");
+    box.querySelector("[data-ref-name]").textContent = name ? ", " + name.split(" ")[0] : "";
+    box.querySelector("[data-ref-wa]").href = "https://wa.me/?text=" + encodeURIComponent(msgOf(code));
+    box.setAttribute("data-code", code);
+    form.hidden = true; out.hidden = false;
+  };
+  var fail = function (m) { err.textContent = m; err.hidden = false; submit.disabled = false; };
+  var copy = function (text, btn) {
+    var done = function () { var t = btn.textContent; btn.textContent = "Copied"; setTimeout(function () { btn.textContent = t; }, 1600); };
+    if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(text).then(done, function () {});
+    else { var ta = document.createElement("textarea"); ta.value = text; document.body.appendChild(ta); ta.select(); try { document.execCommand("copy"); done(); } catch (e) {} ta.remove(); }
+  };
+  try { var saved = JSON.parse(localStorage.getItem("dr-my-ref") || "null"); if (saved && /^[A-Z0-9]{6}$/.test(saved.code)) show(saved.code, saved.name); } catch (e) {}
+
+  var hp = document.createElement("input");
+  hp.type = "text"; hp.name = "website"; hp.tabIndex = -1; hp.autocomplete = "off"; hp.setAttribute("aria-hidden", "true");
+  hp.style.cssText = "position:absolute;left:-9999px;width:1px;height:1px;opacity:0";
+  form.appendChild(hp);
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    err.hidden = true;
+    if (!form.checkValidity()) { form.reportValidity(); return; }
+    var d = {}; new FormData(form).forEach(function (v, k) { d[k] = String(v).trim(); });
+    if (d.website) return;
+    d.page = location.pathname;
+    if (!C.referrerEndpoint) return fail("This is not switched on yet. Please check back soon.");
+    submit.disabled = true;
+    fetch(C.referrerEndpoint, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(d) })
+      .then(function (r) {
+        return r.json().catch(function () { return {}; }).then(function (j) {
+          if (!r.ok || !j.code) return fail(r.status === 400 && j.error ? j.error : (j.error || "Sorry, that did not work. Please try again."));
+          try { localStorage.setItem("dr-my-ref", JSON.stringify({ code: j.code, name: d.name })); localStorage.removeItem("dr-ref"); } catch (e2) {}
+          submit.disabled = false;
+          show(j.code, d.name);
+          ev("referral_link", { returning: !!j.back });
+        });
+      })
+      .catch(function () { fail("Sorry, that did not work. Please try again."); });
+  });
+  box.querySelector("[data-ref-copy]").addEventListener("click", function () { copy(linkOf(box.getAttribute("data-code")), this); ev("share", { method: "copy", content_type: "referral" }); });
+  box.querySelector("[data-ref-wa]").addEventListener("click", function () { ev("share", { method: "whatsapp", content_type: "referral" }); });
+  box.querySelector("[data-ref-more]").addEventListener("click", function () {
+    var code = box.getAttribute("data-code"), btn = this;
+    ev("share", { method: "more", content_type: "referral" });
+    if (navigator.share) navigator.share({ text: msgOf(code) }).catch(function () {});
+    else copy(msgOf(code), btn);
+  });
+  box.querySelector("[data-ref-reset]").addEventListener("click", function () {
+    try { localStorage.removeItem("dr-my-ref"); } catch (e) {}
+    form.reset(); out.hidden = true; form.hidden = false; form.querySelector("input").focus();
+  });
+})();
