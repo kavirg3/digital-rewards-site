@@ -12,7 +12,7 @@ window.DR_CONFIG = {
   // Where the Area Partner application form posts (kept apart from sales leads).
   partnerEndpoint: "https://sentiv-proxy-production.up.railway.app/api/rewards/partner-apply",
   // Google Analytics 4 measurement ID, e.g. "G-XXXXXXXXXX"
-  ga4: "",
+  ga4: "G-V5GFM1ZWYL",
   // Meta Pixel ID, e.g. "123456789012345"
   metaPixel: "",
   // About page founder photo, e.g. "brand/founder.jpg" (portrait, about 4:5). Empty shows a "K" monogram.

@@ -45,6 +45,23 @@
     $all("[data-roi-pick] button", box).forEach(function (b) {
       b.addEventListener("click", function () { set(b.parentNode.getAttribute("data-roi-pick"), b.getAttribute("data-v")); });
     });
+    /* Google Analytics (only loads after cookie Accept): send the numbers once the visitor stops changing them for 2 s */
+    var sent = "", timer = null;
+    var report = function () {
+      clearTimeout(timer);
+      timer = setTimeout(function () {
+        var key = [v.cust, v.spend, v.share, v.visits].join("|");
+        if (key === sent || !window.gtag) return;
+        sent = key;
+        var kept = Math.round(v.cust * v.share / 100);
+        window.gtag("event", "calculator_use", {
+          customers: v.cust, avg_spend: v.spend, come_back_pct: v.share, extra_visits: v.visits,
+          monthly_value: kept * v.spend * v.visits, page_section: location.pathname
+        });
+      }, 2000);
+    };
+    box.addEventListener("input", report);
+    box.addEventListener("click", function (e) { if (e.target.closest("[data-roi-pick] button")) report(); });
     run(null);
   });
 
