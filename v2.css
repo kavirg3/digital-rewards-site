@@ -479,3 +479,10 @@
 .apc-fine{margin:0;font-size:12px;color:#8FA3C6}
 .apc-out .cta{align-self:flex-start}
 @media(max-width:480px){.apc-ctl,.apc-out{padding:20px}.apc-facts{grid-template-columns:1fr}.apc-facts div{padding:10px}.apc-out .cta{align-self:stretch}}
+/* Area Partner form: single-choice pills instead of dropdowns (option C, 23 Nov). Reuses the .ap-langs chip look. */
+.ap-pick input:checked+span{box-shadow:0 10px 22px -12px #9E8BFF}
+.ap-pick span{min-height:40px;padding:0 15px;transition:background .15s,color .15s}
+.ap-pick.half div{flex-wrap:nowrap}
+.ap-pick.half label{flex:1 1 0;min-width:0}
+.ap-pick.half span{width:100%;justify-content:center;box-sizing:border-box}
+.ap-box .pass-two{align-items:end}
