@@ -99,6 +99,7 @@ td+td,th+th{text-align:center}
 
 /* Industries (Mall 5): a shopper walks the mall; each shop lights up as they pass */
 .mw-row{margin:0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:14px}
+.mw-row.mw-bottom{grid-template-columns:repeat(4,minmax(0,1fr))}
 .mw-shop{display:flex;flex-direction:column;overflow:hidden;border:1px solid rgba(120,170,235,.16);background:linear-gradient(180deg,rgba(13,32,76,.7),rgba(5,7,13,.9));opacity:.55;animation:mw-lit 10s linear infinite}
 .mw-top .mw-shop{border-radius:16px 16px 6px 6px}
 .mw-bottom .mw-shop{border-radius:6px 6px 16px 16px;background:linear-gradient(0deg,rgba(13,32,76,.7),rgba(5,7,13,.9))}
@@ -122,7 +123,7 @@ td+td,th+th{text-align:center}
 @keyframes mw-fill{from{width:4%}to{width:100%}}
 @keyframes mw-bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
 @keyframes mw-lit{0%{opacity:.55;box-shadow:none;border-color:rgba(120,170,235,.16)}4%,16%{opacity:1;box-shadow:0 0 0 2px currentColor,0 16px 36px -10px currentColor;border-color:currentColor}26%,100%{opacity:.55;box-shadow:none;border-color:rgba(120,170,235,.16)}}
-@media (max-width:900px){.mw-row{grid-template-columns:repeat(2,minmax(0,1fr))}.mw-row .mw-shop:last-child{grid-column:span 2}.mw-hall{height:120px}.mw-tag{display:none}}
+@media (max-width:900px){.mw-row,.mw-row.mw-bottom{grid-template-columns:repeat(2,minmax(0,1fr))}.mw-row .mw-shop:last-child:nth-child(odd){grid-column:span 2}.mw-hall{height:120px}.mw-tag{display:none}}
 @media (prefers-reduced-motion:reduce){.mw-shop{opacity:1}}
 
 /* Industries page cards */

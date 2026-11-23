@@ -113,7 +113,7 @@
       screen: "M3 4h18v12H3zM8 20h8M12 16v4",
       compass: "M12 21a9 9 0 100-18 9 9 0 000 18zM15.5 8.5l-2 5-5 2 2-5 5-2z"
     };
-    var MAP = [[/restaurant|caf/i, "cup", "#FF7A90"], [/cannabis/i, "leaf", "#7FE0A8"], [/butch|special/i, "tag", "#FFB86B"], [/shopping/i, "bag", "#38BDF8"], [/salon|barber/i, "cut", "#9E8BFF"], [/spa|beauty/i, "spark", "#F9A8D4"], [/hotel|hospital/i, "bed", "#7FCFEF"], [/gym|fit/i, "gym", "#FFE81F"], [/retail store/i, "store", "#60A5FA"], [/managed/i, "team", "#9E8BFF"], [/software/i, "screen", "#38BDF8"], [/not sure/i, "compass", "#FFE81F"], [/.*/, "dots", "#A9BDDF"]];
+    var MAP = [[/restaurant|caf/i, "cup", "#FF7A90"], [/butch|special/i, "tag", "#FFB86B"], [/shopping/i, "bag", "#38BDF8"], [/salon|barber/i, "cut", "#9E8BFF"], [/spa|beauty/i, "spark", "#F9A8D4"], [/hotel|hospital/i, "bed", "#7FCFEF"], [/gym|fit/i, "gym", "#FFE81F"], [/retail store/i, "store", "#60A5FA"], [/managed/i, "team", "#9E8BFF"], [/software/i, "screen", "#38BDF8"], [/not sure/i, "compass", "#FFE81F"], [/.*/, "dots", "#A9BDDF"]];
     var icon = function (text) {
       var m = MAP.filter(function (r) { return r[0].test(text); })[0];
       return '<span class="dsel-ic" style="--c:' + m[2] + '"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="' + (m[1] === "dots" ? 3 : 1.8) + '" stroke-linecap="round" stroke-linejoin="round"><path d="' + P[m[1]] + '"/></svg></span>';
