@@ -342,7 +342,9 @@
   var here = location.pathname.replace(/\.html$/, "").split("/").pop();
   if (here === "refer") return;
   var hidden = false;
-  try { hidden = localStorage.getItem("dr-refstrip-off") === "1"; } catch (e) {}
+  // × hides it for this visit only (until the tab is closed); before 24 Nov it hid it for good, so clear that old note.
+  try { localStorage.removeItem("dr-refstrip-off"); } catch (e) {}
+  try { hidden = sessionStorage.getItem("dr-refstrip-off") === "1"; } catch (e) {}
   var header = document.querySelector("header");
   if (header && !hidden) {
     var bar = document.createElement("div");
@@ -351,7 +353,7 @@
       '<button type="button" class="rs-x" aria-label="Hide this message">×</button>';
     header.parentNode.insertBefore(bar, header);
     bar.querySelector(".rs-go").addEventListener("click", function () { try { if (window.gtag) window.gtag("event", "referral_strip_click"); } catch (e) {} });
-    bar.querySelector(".rs-x").addEventListener("click", function () { bar.remove(); try { localStorage.setItem("dr-refstrip-off", "1"); } catch (e) {} });
+    bar.querySelector(".rs-x").addEventListener("click", function () { bar.remove(); try { sessionStorage.setItem("dr-refstrip-off", "1"); } catch (e) {} });
   }
   Array.prototype.forEach.call(document.querySelectorAll('form[data-lead-form]:not([data-lead-form="partner"])'), function (form) {
     var box = form.closest("[data-lead-box], .glass") || form.parentNode;
