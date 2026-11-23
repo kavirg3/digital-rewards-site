@@ -20,8 +20,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&display=swap">
-<link rel="stylesheet" href="styles.css?v=202611221700">
-<link rel="stylesheet" href="v2.css?v=202611221700">
+<link rel="stylesheet" href="styles.css?v=202611231000">
+<link rel="stylesheet" href="v2.css?v=202611231000">
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -109,29 +109,23 @@
 <h2 class="v2-h2">How Much Revenue Are You <span class="v2-y">Leaving on the Table?</span></h2>
 <p class="v2-sub">Slide to your own numbers.</p>
 </div>
-<div class="v2-roi" data-roi data-roi-fee="2495">
-<div class="glass v2-roi-in">
-<div class="v2-sl"><div class="t"><label for="r1">Monthly customers</label><strong data-roi-out="cust">500</strong></div><input id="r1" type="range" min="50" max="5000" step="50" value="500" data-roi-in="cust"></div>
-<div class="v2-sl"><div class="t"><label for="r2">Average customer spend</label><strong data-roi-out="spend">R250</strong></div><input id="r2" type="range" min="30" max="2000" step="10" value="250" data-roi-in="spend"></div>
-<div class="v2-sl"><div class="t"><label for="r3">Additional visits per retained customer</label><strong data-roi-out="visits">1</strong></div><input id="r3" type="range" min="1" max="6" step="1" value="1" data-roi-in="visits"></div>
-<div class="v2-sl"><div class="t"><label for="r4">Additional customers retained</label><strong data-roi-out="share" style="color: #9E8BFF">20%</strong></div><input id="r4" type="range" min="5" max="50" step="5" value="20" data-roi-in="share" style="accent-color: #9E8BFF"></div>
+<div class="rc" data-roi data-roi-fee="2495">
+<div class="glass rc-in">
+<div class="rc-f"><div class="rc-t"><label for="rc-c">Customers a month</label><span class="rc-nb"><input id="rc-c" type="number" inputmode="numeric" min="10" max="20000" value="500" data-roi-in="cust" style="--w: 6ch"></span></div><input class="rc-rx" type="range" min="50" max="5000" step="50" value="500" data-roi-in="cust" aria-label="Customers a month"></div>
+<div class="rc-f"><div class="rc-t"><label for="rc-s">Average spend</label><span class="rc-nb"><span>R</span><input id="rc-s" type="number" inputmode="numeric" min="10" max="20000" value="250" data-roi-in="spend" style="--w: 5ch"></span></div><input class="rc-rx" type="range" min="30" max="2000" step="10" value="250" data-roi-in="spend" aria-label="Average spend"></div>
+<div class="rc-f"><div class="rc-t"><div><span class="rc-l" id="rc-sh">Customers who come back more</span><small data-roi-out="shareHint">100 of your 500 customers</small></div></div><div class="rc-seg" data-roi-pick="share" role="group" aria-labelledby="rc-sh"><button type="button" data-v="10">10%</button><button type="button" data-v="20" aria-pressed="true">20%</button><button type="button" data-v="30">30%</button><button type="button" data-v="40">40%</button><button type="button" data-v="50">50%</button></div></div>
+<div class="rc-f"><div class="rc-t"><div><span class="rc-l" id="rc-vi">Extra visits each, per month</span><small>How many more times each one comes in</small></div></div><div class="rc-seg b" data-roi-pick="visits" role="group" aria-labelledby="rc-vi"><button type="button" data-v="1" aria-pressed="true">+1</button><button type="button" data-v="2">+2</button><button type="button" data-v="3">+3</button><button type="button" data-v="4">+4</button></div></div>
+<div class="rc-dock" aria-hidden="true"><span>Extra a month</span><b data-roi-out="month">R25,000</b></div>
 </div>
-<div class="v2-roi-out">
-<div style="display: flex; flex-direction: column; gap: 6px"><span style="font-size: 13px; color: #A9BDDF">Illustrative additional monthly revenue</span><div class="v2-big" aria-live="polite" data-roi-out="month">R25,000</div></div>
-<div class="well v2-formula"><b data-roi-out="kept">100</b> additional retained customers × <b data-roi-out="spend">R250</b> × <b data-roi-out="visits">1</b> <span data-roi-out="visitWord">additional visit</span></div>
-<div class="v2-stats">
-<div class="v2-stat"><small>Over 12 months</small><b style="color: #FFE81F" data-roi-out="year">R300,000</b></div>
-<div class="v2-stat"><small>Extra visits a month</small><b style="color: #38BDF8">+<span data-roi-out="extra">100</span></b></div>
-<div class="v2-stat"><small>Covers the Growth plan</small><b style="color: #9E8BFF" data-roi-out="times">10x</b></div>
+<div class="rc-out">
+<div><span class="rc-cap">Extra money a month</span><div class="rc-big" aria-live="polite" data-roi-out="month">R25,000</div></div>
+<div class="well rc-say"><b data-roi-out="kept">100</b> customers come back <b data-roi-out="visitsTxt">1 more time</b> and spend <b data-roi-out="spend">R250</b> each time.</div>
+<div class="rc-stats">
+<div class="rc-stat"><small>In a year</small><b style="color: #FFE81F" data-roi-out="year">R300,000</b></div>
+<div class="rc-stat"><small>Extra visits a month</small><b style="color: #38BDF8">+<span data-roi-out="extra">100</span></b></div>
+<div class="rc-stat"><small>Pays for Growth plan</small><b style="color: #9E8BFF" data-roi-out="times">10x</b></div>
 </div>
-<div class="v2-vsbar">
-<span>Growth plan fee · R2,495 a month</span><div class="bar"><span data-roi-bar="fee" style="width: 10%; background: #9E8BFF; box-shadow: 0 0 12px rgba(158,139,255,0.7)"></span></div>
-<span>Extra revenue · <span data-roi-out="month">R25,000</span> a month</span><div class="bar"><span data-roi-bar="rev" style="width: 100%; background: #FFE81F; box-shadow: 0 0 12px rgba(255,232,31,0.6)"></span></div>
-</div>
-<div class="v2-row" style="justify-content: space-between">
-<span style="flex: 1 1 240px; font-size: 12px; color: #A9BDDF">Illustrative scenario, not a guaranteed result.</span>
-<a class="cta" href="#assessment" style="min-height: 48px; padding: 0 22px; font-size: 15px">Build My Growth Plan</a>
-</div>
+<div class="rc-cta"><span>Example only, not a promise.</span><a class="cta" href="#assessment">Build My Growth Plan</a></div>
 </div>
 </div>
 </div>
@@ -168,8 +162,8 @@
 </footer>
 
 </div>
-<script src="config.js?v=202611221700"></script>
-<script src="site.js?v=202611221700"></script>
-<script src="v2.js?v=202611221700"></script>
+<script src="config.js?v=202611231000"></script>
+<script src="site.js?v=202611231000"></script>
+<script src="v2.js?v=202611231000"></script>
 </body>
 </html>

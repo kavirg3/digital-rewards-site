@@ -4,30 +4,48 @@
   var num = function (n) { return Math.round(n).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); };
   var rand = function (n) { return "R" + num(n); };
 
-  /* ROI calculator: monthly customers x % retained x spend x extra visits */
+  /* ROI calculator: customers x % who come back more x spend x extra visits (option 1, 23 Nov) */
   $all("[data-roi]").forEach(function (box) {
-    var ins = $all("[data-roi-in]", box);
-    var fee = Number(box.getAttribute("data-roi-fee")) || 4995;
-    var run = function () {
-      var v = {};
-      ins.forEach(function (i) { v[i.getAttribute("data-roi-in")] = Number(i.value); });
+    var fee = Number(box.getAttribute("data-roi-fee")) || 2495;
+    var v = { cust: 500, spend: 250, share: 20, visits: 1 };
+    var lim = { cust: [10, 20000], spend: [10, 20000], share: [1, 100], visits: [1, 8] };
+    var ins = $all("input[data-roi-in]", box);
+    var run = function (typing) {
       var kept = Math.round(v.cust * v.share / 100);
       var month = kept * v.spend * v.visits;
       var out = {
-        cust: num(v.cust), spend: rand(v.spend), visits: String(v.visits), share: v.share + "%",
-        kept: num(kept), month: rand(month), year: rand(month * 12), extra: num(kept * v.visits),
-        visitWord: v.visits === 1 ? "additional visit" : "additional visits",
+        month: rand(month), year: rand(month * 12), kept: num(kept), extra: num(kept * v.visits), spend: rand(v.spend),
+        shareHint: num(kept) + " of your " + num(v.cust) + " customers",
+        visitsTxt: v.visits === 1 ? "1 more time" : v.visits + " more times",
         times: month >= fee ? (month / fee).toFixed(1).replace(/\.0$/, "") + "x" : "under 1x"
       };
-      $all("[data-roi-out]", box).forEach(function (el) { el.textContent = out[el.getAttribute("data-roi-out")]; });
-      var max = Math.max(month, fee) || 1;
-      $all("[data-roi-bar]", box).forEach(function (el) {
-        var k = el.getAttribute("data-roi-bar");
-        el.style.width = Math.max(2, Math.round((k === "fee" ? fee : month) / max * 100)) + "%";
+      $all("[data-roi-out]", box).forEach(function (el) { var k = el.getAttribute("data-roi-out"); if (k in out) el.textContent = out[k]; });
+      ins.forEach(function (el) {
+        if (el === typing) return;
+        el.value = v[el.getAttribute("data-roi-in")];
+        if (el.type === "range") el.style.setProperty("--p", Math.min(100, Math.max(0, (el.value - el.min) / (el.max - el.min) * 100)) + "%");
+      });
+      $all("[data-roi-pick]", box).forEach(function (g) {
+        var k = g.getAttribute("data-roi-pick");
+        $all("button", g).forEach(function (b) { b.setAttribute("aria-pressed", Number(b.getAttribute("data-v")) === v[k] ? "true" : "false"); });
       });
     };
-    ins.forEach(function (i) { i.addEventListener("input", run); });
-    run();
+    var set = function (k, val, typing) {
+      val = Number(val);
+      if (!isFinite(val)) return;
+      v[k] = Math.min(lim[k][1], Math.max(lim[k][0], Math.round(val)));
+      run(typing);
+    };
+    ins.forEach(function (el) {
+      var k = el.getAttribute("data-roi-in");
+      el.addEventListener("input", function () { if (el.value !== "") set(k, el.value, el.type === "range" ? null : el); });
+      el.addEventListener("blur", function () { run(null); });
+      if (el.type === "number") el.addEventListener("focus", function () { el.select(); });
+    });
+    $all("[data-roi-pick] button", box).forEach(function (b) {
+      b.addEventListener("click", function () { set(b.parentNode.getAttribute("data-roi-pick"), b.getAttribute("data-v")); });
+    });
+    run(null);
   });
 
   /* Lead form: the proxy keeps only known fields, so fold "what do you want" into the challenge note */
