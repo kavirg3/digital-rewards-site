@@ -561,3 +561,22 @@
 .rs-thanks span{font-size:14px;color:#DCE6F7}
 .rs-btn{display:inline-flex;align-items:center;justify-content:center;min-height:46px;border-radius:12px;font-size:15px;font-weight:700;color:#03210F;background:#25D366;text-decoration:none}
 .rs-btn:hover{color:#03210F;filter:brightness(1.06)}
+
+/* Client Portal button (option C, 28 Nov): purple outline at the end of the main nav (.portal-d);
+   icon only on mid-width laptops; on phones a separate icon (.portal-m) sits next to Menu */
+header>div{max-width:1280px!important}
+.portal{display:inline-flex;align-items:center;justify-content:center;gap:7px;box-sizing:border-box;min-height:44px;padding:0 15px;border-radius:14px;font-size:14px;font-weight:700;color:#D9CFFF;text-decoration:none;white-space:nowrap;border:1.5px solid rgba(165,136,252,.75);background:rgba(124,82,251,.1);box-shadow:0 0 18px -6px rgba(158,139,255,.7)}
+.portal:hover{background:rgba(124,82,251,.2);color:#fff}
+.portal-d{margin-left:4px}
+.portal-d .portal-ic,.portal-m{display:none}
+@media (max-width:1279px){
+  .portal-d{width:44px;padding:0}
+  .portal-d span,.portal-d .portal-ar{display:none}
+  .portal-d .portal-ic{display:block}
+}
+@media (max-width:900px){
+  .portal-d{display:none!important}
+  .portal-m{display:inline-flex;margin-left:auto;width:44px;padding:0}
+  header .portal-m~.menu-btn{margin-left:-10px}
+}
+@media (max-width:420px){header>div>a:first-child img{width:172px;height:auto}}
